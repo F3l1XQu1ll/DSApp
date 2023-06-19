@@ -1,0 +1,26 @@
+[package]
+name = "dsa-char-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+console_error_panic_hook = "0.1.7"
+eframe = { version = "0.22.0", default-features = false, features = ["persistence", "serde", "default_fonts", "wgpu"] }
+egui = { version = "0.22.0", features = ["persistence", "default_fonts"] }
+egui_extras = "0.22.0"
+enum-iterator = "1.4.1"
+ron = "0.8.0"
+serde = { version = "1.0.164", features = ["derive"] }
+tracing-wasm = "0.2.1"
+tracing = "0.1.37"
+wasm-bindgen-futures = "0.4.36"
+log = "0.4.18"
+wgpu = { version = "0.16.1", features = ["webgl"] }
+
+[profile.release]
+opt-level = 2
+
+# [profile.dev.package."*"]
+# opt-level = 2
