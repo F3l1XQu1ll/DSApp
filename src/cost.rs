@@ -63,6 +63,7 @@ impl<'a> CostView<'a> {
 /// ```
 macro_rules! ui_attr {
     ($fun: ident, $attr: ident) => {
+        /// See [`ui_attr`] macro
         pub fn $fun(&mut self) -> impl egui::Widget + '_ {
             |ui: &mut egui::Ui| {
                 ui.add(crate::widgets::decimal::Decimal::decimal(
@@ -83,10 +84,12 @@ impl<'a> AttributeCalc<'a> {
         Self { character }
     }
 
+    /// The AP that the character has before spending any
     pub fn start_ap(&self) -> u16 {
         self.base_ap()
     }
 
+    /// Returns a [`String`] with debug info regarding the characters [`Spezies`](crate::spezies::Spezies)
     pub fn spezies_debug(&self) -> String {
         format!(
             "Spezies: {} LE {} SK {} ZK {} COST {}\nStart - Spezies = {}",
@@ -99,10 +102,14 @@ impl<'a> AttributeCalc<'a> {
         )
     }
 
+    /// LE, Grundwert der Spezies + KO + KO
+    ///
+    /// You probably want to use this
     pub fn effective_le(&self) -> u8 {
         self.character.identity.species.le() + 2 * self.character.attributes.ko
     }
 
+    /// Debug String for LE, see [`Self::effective_le`] for more info
     pub fn le_debug(&self) -> String {
         format!(
             "Effective LE (LE({}) + 2 * KO({})): {}",
@@ -112,6 +119,7 @@ impl<'a> AttributeCalc<'a> {
         )
     }
 
+    /// Seelenkraft (SK) – GW + (MU+KL+IN)/6
     pub fn effective_sk(&self) -> i16 {
         let part_sum = (self.character.attributes.mu
             + self.character.attributes.kl
@@ -120,6 +128,7 @@ impl<'a> AttributeCalc<'a> {
         self.character.identity.species.sk() as i16 + round_div(part_sum, 6)
     }
 
+    /// Debug for [`Self::effective_sk`]
     pub fn sk_debug(&self) -> String {
         format!(
             "Effective SK (SK({}) + (MU({}) + KL({}) + IN({})) / 6): {}",
@@ -131,6 +140,7 @@ impl<'a> AttributeCalc<'a> {
         )
     }
 
+    /// Zähigkeit (ZK) – GW + (KO+KO+KK)/6
     pub fn effective_zk(&self) -> i16 {
         let part_sum = (self.character.attributes.ko
             + self.character.attributes.ko
@@ -139,6 +149,7 @@ impl<'a> AttributeCalc<'a> {
         self.character.identity.species.zk() as i16 + round_div(part_sum, 6)
     }
 
+    /// Debug for [`Self::effective_sk`]
     pub fn zk_debug(&self) -> String {
         format!(
             "Effective ZK (ZK({}) + (KO({}) + KO({}) + KK({})) / 6): {}",
@@ -150,10 +161,12 @@ impl<'a> AttributeCalc<'a> {
         )
     }
 
+    /// Ausweichen – GE/2
     pub fn ausweichen(&self) -> i16 {
         round_div(self.character.attributes.ge as i16, 2)
     }
 
+    /// Debug for [`Self::ausweichen`]
     pub fn ausweichen_debug(&self) -> String {
         format!(
             "Ausweichen (GE({}) / 2): {}",
@@ -171,33 +184,44 @@ impl<'a> AttributeCalc<'a> {
     ui_attr!(ui_ko, ko);
     ui_attr!(ui_kk, kk);
 
+    /// Accessor for [`Erfahrungsgrad::ap_konto`](crate::data::Erfahrungsgrad::ap_konto)
     fn base_ap(&self) -> u16 {
         self.character.erfahrungsgrad.erfahrungsgrad().ap_konto
     }
 
+    /// Accessor for [`Spezies::name`](crate::spezies::Spezies::name)
     fn base_name(&self) -> &'static str {
         self.character.identity.species.name()
     }
 
+    /// Accessor for [`Spezies::le()`](crate::spezies::Spezies::le())
     fn base_le(&self) -> u8 {
         self.character.identity.species.le()
     }
 
+    /// Accessor for [`Spezies::sk()`](crate::spezies::Spezies::sk())
     fn base_sk(&self) -> i8 {
         self.character.identity.species.sk()
     }
 
+    /// Accessor for [`Spezies::zk()`](crate::spezies::Spezies::zk())
     fn base_zk(&self) -> i8 {
         self.character.identity.species.zk()
     }
 
-    /// Kosten der Spezies an Sich
+    /// Kosten der Spezies an Sich – [`Spezies::cost()`](crate::spezies::Spezies::cost())
     fn base_cost(&self) -> u8 {
         self.character.identity.species.cost()
     }
 }
 
+/// Rounded division
+///
+/// Conversion to f64 should be considered for a simpler result,
+/// however this one might be slightly faster and more memory efficient
 const fn round_div(a: i16, b: i16) -> i16 {
-    let round_pad = if a % b < b / 2 { 0 } else { 1 };
-    a / b + round_pad
+    // let round_pad = if a % b < b / 2 { 0 } else { 1 };
+    // a / b + round_pad
+    let round_pad = if (((a * 10) / b) % 10) < 5 { 0 } else { 1 };
+    a / b + (round_pad * a.signum() * b.signum())
 }
