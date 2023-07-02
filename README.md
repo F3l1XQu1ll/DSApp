@@ -29,7 +29,7 @@ Beispiel DSA5 Chartaktersheet:
 |---|---|---|
 | in progress | Persönlichkeitsdaten | Familie|
 | done | Erfahungsgrad / Abenteuerpunkte(AP) | check data|
-| done | Spezies / Kultur | check data|
+| in progress | Spezies / Kultur | Boni/Mali|
 | in progress | Professionen | Standarts einfügen |
 | not | Sprachen / Schriften |
 | done | Leiteigenschaften | check data |
