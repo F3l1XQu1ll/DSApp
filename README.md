@@ -10,28 +10,46 @@ Beispiel DSA5 Chartaktersheet:
 
 
 ## To Do's:
+### Projekt:
+| Status | ToDo | notes |
+|---|---|---|
+| in progress | Einarbeiten | Julian |
+| in progress | Dokumentation | | 
+
+
 ### Erstellen eines Charakters
-| Status | ToDo |
-|---|---|
-|| Persönlichkeitsdaten |
-|| Erfahungsgrad / Abenteuerpunkte(AP) |
-|| Spezies / Kultur |
-|| Professionen |
-|| Sprachen / Schriften |
-|| Leiteigenschaften |
-|| Vorteile / Nachteile |
-|| Sonderfertigkeiten |
-|| Grundwerte (LE, AsP, KP, SK, ZK, As) |
-|| Talente |
-|| Kampftechniken |
-|| Ausrüstung / Geld |
-|| Tragekraft |
-|| Tiere / Begleiter|
-|| Homebrew |
+| Status | ToDo | notes |
+|---|---|---|
+| in progress | Persönlichkeitsdaten | Familie|
+| done | Erfahungsgrad / Abenteuerpunkte(AP) | check data|
+| done | Spezies / Kultur | check data|
+| in progress | Professionen | Standarts einfügen |
+| not | Sprachen / Schriften |
+| done | Leiteigenschaften | check data |
+| not | Vorteile / Nachteile |
+| not | Sonderfertigkeiten | in Profession angefangen :(|
+| in progress | Grundwerte (LE, AsP, KP, SK, ZK, As) | Wert ausrechenen, Zukauf ermöglichen|
+| done | Talente | Untertalente; check data |
+| not | Kampftechniken |
+| not | Ausrüstung / Geld |
+| not | Tragekraft |
+| not | Tiere / Begleiter|
+| not | Homebrew | done: professionen | 
 ### Dynamisches Nutzen des Charakters
 | Status | ToDo |
 |---|---|
-|| Statuseffekte |
+| not | Statuseffekte |
+| in progress | Speichern von Char |
+| not | Speichern von Homebrew |
+| not | würfeln |
+### weiters
+| Status | ToDo | notes |
+|---|---|---|
+| not | GUI | chapter|
+| not | Programm | |
+| not | Zonen Rüstung | |
+| not | Verweis zu Ulisses-Wiki| |
+
 
 ## Implementierung
 
@@ -41,4 +59,4 @@ Interface wird mit `egui`, `eframe` (und derzeit WebGL über `wgpu`) gerendert.
 
 Alle internen Ressourcen, wie Standartwerte, Regeln, etc. sind in Code umgesetzt.
 
-Die Daten wurde mit `x` aus [DSAwiki](https://ulisses-regelwiki.de/start.html) gewonnen
+Die Daten wurde aus [DSAwiki](https://ulisses-regelwiki.de/start.html) gewonnen
