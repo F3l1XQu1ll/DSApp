@@ -7,6 +7,12 @@ Das Ziel dieses Projektes ist ein digitales Charakter sheet für DSA5 zu erstell
 DSA5 bietet Möglichkeiten das Projekt stark zu erweitern, aber als erstes wollen wir die Charaktererstellung digitalisieren.
 
 Beispiel DSA5 Chartaktersheet:
+![](/image/char_sheet_1.png)
+![](/image/char_sheet_2.png)
+![](/image/char_sheet_3.png)
+![](/image/char_sheet_4.png)
+![](/image/char_sheet_5.png)
+![](/image/char_sheet_6.png)
 
 
 ## To Do's:
