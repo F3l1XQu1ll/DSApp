@@ -41,6 +41,7 @@ Beispiel DSA5 Chartaktersheet:
 | not | Ausrüstung / Geld |
 | not | Tragekraft |
 | not | Tiere / Begleiter|
+| not | Un-/Geeignete Vor-/Nachteile| Profession/Spezies/Kultur|
 | not | Homebrew | done: professionen | 
 ### Dynamisches Nutzen des Charakters
 | Status | ToDo |
