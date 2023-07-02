@@ -1,8 +1,9 @@
 # DSApp – DSA Character Sheet
 
-Ein selbstrechnendes Character Sheet für DSA – Work in Progress.
+Das Ziel dieses Projektes ist ein digitales Character Sheet für DSA5 zu erstellen.
 
-Das Ziel dieses Projektes ist ein digitales Charakter sheet für DSA5 zu erstellen.
+DSA5 ist eine Pen and Paper von Ulisess Spiele und stellt das deutsche Gegenstück zu DnD da.
+Es gibt ein Programm um digital DSA5 Charaktere zu erstellen, dieses hat aber Probleme mit der Aktualität und bietet bei Anwendung eigner Regeln eine schlechte Implentierung zum Einfügen eigner Inhalte.
 
 DSA5 bietet Möglichkeiten das Projekt stark zu erweitern, aber als erstes wollen wir die Charaktererstellung digitalisieren.
 
