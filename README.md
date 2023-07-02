@@ -56,6 +56,7 @@ Beispiel DSA5 Chartaktersheet:
 | not | Programm | |
 | not | Zonen Rüstung | |
 | not | Verweis zu Ulisses-Wiki| |
+| not | einheitliche Benennung| |
 
 
 ## Implementierung
