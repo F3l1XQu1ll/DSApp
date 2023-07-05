@@ -1,0 +1,16 @@
+mod animisten;
+mod druiden;
+mod elfen;
+mod geoden;
+mod gildenmagier;
+mod hexen;
+mod kristallomant;
+mod magiedilettanten;
+mod qabaloth;
+mod runenschoepfer;
+mod scharlatane;
+mod schelme;
+mod zauberalchemisten;
+mod zauberbarden;
+mod zaubertaenzer;
+mod zibilja;

@@ -1,0 +1,2627 @@
+use crate::profession;
+
+//Adersin-Schwertgeselle
+profession!(
+    AdersinSchwertgeselle,
+    "Adersin-Schwertgeselle",
+    379,
+    vec![
+        IN13(fuerdieSFAufmerksamkeit),
+        GE13(fuerdieSFFinteI, VorstoßundAdersinStil),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        VorteilAdel(515),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, DuellKodex, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        AdersinStil,
+        Aufmerksamkeit,
+        BelastungsgewoehnungI,
+        FinteI,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![
+        Armbrueste10,
+        Dolche10,
+        Raufen10,
+        Schwerter12,
+        Zweihandschwerter12
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        Gutaussehend,
+        HoheLebenskraft,
+        Reich,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(
+            Arroganz,
+            Eitelkeit,
+            VorurteilevorallemgegenKrieger,
+            Ritter,
+            Soeldner
+        ),
+        VerpflichtungenI(Lehrmeister)
+    ],
+    vec![Unscheinbar, allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Blutrausch,
+        Fettleibig,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Aranischer Sippenkrieger
+profession!(
+    AranischerSippenkrieger,
+    "Aranischer Sippenkrieger",
+    351,
+    vec![
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        SonderfertigkeitBerittenerKampf(fuerdieSFLanzenangriff)(20),
+        SonderfertigkeitLanzenangriff(10),
+        VerpflichtungenII(Sippe)(20)
+    ],
+    vec![
+        SprachenSchriften6,
+        FertigkeitsspezialisierungKriegskunst,
+        BelastungsgewoehnungI,
+        FinteI,
+        WuchtschlagI
+    ],
+    vec![
+        Boegen10,
+        Dolche10,
+        Lanzen10,
+        Raufen11,
+        einederfolgendenKampftechniken12,
+        dieanderen10Schilde,
+        Schwerter,
+        Stangenwaffen
+    ],
+    vec![
+        KoerperKlettern3,
+        Koerperbeherrschung4,
+        Kraftakt4,
+        Reiten8,
+        Selbstbeherrschung3,
+        Singen3,
+        Sinnesschaerfe4,
+        Verbergen3,
+        Zechen2GesellschaftEinschuechtern5NaturFaehrtensuchen2,
+        Orientierung4,
+        Pflanzenkunde3,
+        Tierkunde3,
+        Wildnisleben3WissenGeographie2,
+        Geschichtswissen3,
+        Goetter & Kulte4,
+        Kriegskunst6,
+        Rechnen2,
+        Rechtskunde2,
+        Sagen & Legenden4HandwerkFahrzeuge3,
+        HeilkundeWunden4,
+        Lederbearbeitung2,
+        Metallbearbeitung3
+    ],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        Richtungssinn,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Prinzipientreue(
+            VerteidigungderSippe,
+            rondragefaelligesVerhalten,
+            SchutzderSchwachen
+        ),
+        SchlechteEigenschaft(Aberglaube, Jaehzorn, Rachsucht)
+    ],
+    vec![
+        Adel,
+        BegabunginGesellschaftstalenten,
+        SozialeAnpassungsfaehigkeit
+    ],
+    vec![Behaebig, SchlechteRegeneration(Lebensenergie), Zerbrechlich],
+    vec![]
+);
+
+//Baburiner Kriegerin
+profession!(
+    BaburinerKriegerin,
+    "Baburiner Kriegerin",
+    361,
+    vec![
+        MU13(fuerdieSFLanzenangriff),
+        IN13(
+            fuerdieSFAufmerksamkeit,
+            KampfreflexeI,
+            PraeziserSchuss / WurfIundBaburinStil
+        ),
+        GE13(fuerdieSFFinteI),
+        SonderfertigkeitBerittenerKampf(fuerdieSFLanzenangriff)(20),
+        SonderfertigkeitLanzenangriff(10),
+        SonderfertigkeitSichelangriff(10),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        Aufmerksamkeit,
+        BaburinStil,
+        FinteI,
+        KampfreflexeI,
+        PraeziserSchuss / WurfI
+    ],
+    vec![
+        Boegen12,
+        Dolche8,
+        Lanzen10,
+        Raufen8,
+        Schwerter12,
+        Wurfwaffen12
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Begabung(ReitenoderFahrzeuge),
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, Eitelkeit, Verwoehnt),
+        SchlechteEigenschaften(Autoritaetsglaube, Verschwendungssucht),
+        VerpflichtungenIII(AkademieoderDienstherrin)
+    ],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        EingeschraenkterSinn(Sicht),
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Balihoer Krieger
+profession!(
+    BalihoerKrieger,
+    "Balihoer Krieger",
+    387,
+    vec![
+        MU13(fuerdieSFBalihoStil),
+        IN13(fuerdieSFVerteidigungshaltung),
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        SonderfertigkeitBerittenerKampf(fuerdieSFLanzenangriffundBalihoStil)(20),
+        SonderfertigkeitLanzenangriff(10),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften8,
+        BalihoStil,
+        BelastungsgewoehnungI,
+        FinteI,
+        Verteidigungshaltung,
+        WuchtschlagI
+    ],
+    vec![
+        Dolche8,
+        Hiebwaffen11,
+        Kettenwaffen11,
+        Lanzen12,
+        Raufen10,
+        Schilde11,
+        Schwerter12,
+        Zweihandschwerter11
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Begabung(ReitenoderFahrzeuge),
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Akademie, DienstoderLehnsherr)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Dajin-Buskur
+profession!(
+    DajinBuskur,
+    "Dajin-Buskur",
+    402,
+    vec![
+        IN13(fuerdieSFAufmerksamkeitundKampfreflexeI),
+        FF13(fuerdieSFSchnellziehen),
+        GE13(fuerdieSFFinteI, VorstoßundDajinStil),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften6,
+        FertigkeitsspezialisierungKoerperbeherrschung,
+        Aufmerksamkeit,
+        BelastungsgewoehnungI,
+        DajinStil,
+        FinteI,
+        KampfreflexeI,
+        Schnellziehen,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![Dolche8, Raufen10, Zweihandschwerter12],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Begabung(Koerperbeherrschung),
+        Giftresistenz,
+        Richtungssinn,
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, VorurteilevorallemgegenueberNichtmaraskanern),
+        SchlechteEigenschaften(Neugier),
+        VerpflichtungenII(Lehrmeister)
+    ],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Nachtblind,
+        NiedrigeLebenskraft,
+        NiedrigeZaehigkeit,
+        SchlechteRegeneration(Lebensenergie),
+        Zerbrechlich,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Distelritter
+profession!(
+    Distelritter,
+    "Distelritter",
+    283,
+    vec![
+        MU13(fuerdieSFLanzenangriff),
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI) & KK13(fuerdieSFWuchtschlagI),
+        Adel(5)
+    ],
+    vec![
+        SprachenSchriften8,
+        FertigkeitsspezialisierungReiten,
+        BelastungsgewoehnungI,
+        BerittenerKampf,
+        FinteI,
+        Lanzenangriff,
+        WuchtschlagI
+    ],
+    vec![
+        Lanzen12,
+        Raufen8,
+        Schwerter11,
+        Zweihandschwerter10,
+        einederfolgendenKampftechniken10Hiebwaffen,
+        Kettenwaffen,
+        Zweihandhiebwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        Gutaussehend,
+        HoheLebenskraft,
+        Reich,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, Eitelkeit, Unheimlich),
+        PrinzipientreueIIII(Ritterkodex, ehrenhaftesVerhalten, SchutzderSchwachen),
+        VerpflichtungenII(Lehnsherr)
+    ],
+    vec![],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie)
+    ],
+    vec![]
+);
+
+//Echsenreiter
+profession!(
+    Echsenreiter,
+    "Echsenreiter",
+    207,
+    vec![SpeziesAchaz, KulturAchazRha],
+    vec![SprachenSchriften2, FertigkeitsspezialisierungTierkunde],
+    vec![Raufen10, Stangenwaffen11],
+    vec![
+        KoerperKoerperbeherrschung5,
+        Kraftakt4,
+        Reiten8,
+        Selbstbeherrschung5,
+        Sinnesschaerfe4GesellschaftWillenskraft6NaturPflanzenkunde2,
+        Tierkunde8WissenGeographie4,
+        Geschichtswissen2,
+        Goetter & Kulte2,
+        Sagen & Legenden5,
+        Sternkunde3HandwerkHeilkundeWunden2,
+        Lederbearbeitung4
+    ],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        Reich,
+        VerbesserteRegeneration(Lebensenergie),
+        ZaeherHund
+    ],
+    vec![Persoenlichkeitsschwaeche(Arroganz)],
+    vec![],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie)
+    ],
+    vec![
+        Bruthueter(203AP),
+        Reiten4statt8,
+        Kraftakt6statt4,
+        Flugechsenreiter(207AP),
+        Fliegen8stattReiten8,
+        Hornechsenreiter(211AP),
+        Geschichtswissen4statt2,
+        Schlingerreiter(215AP),
+        Selbstbeherrschung7statt5
+    ]
+);
+
+//Elenviner Kriegerin
+profession!(
+    ElenvinerKriegerin,
+    "Elenviner Kriegerin",
+    284,
+    vec![
+        MU13(fuerdieSFElenvinaStil),
+        GE13(fuerdieSFFinteIundVorstoß),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        SonderfertigkeitAnfuehrer(fuerdieSFElenvinaStil)(10),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        BelastungsgewoehnungI,
+        ElenvinaStil,
+        FinteI,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![
+        Dolche8,
+        Hiebwaffen12,
+        Lanzen10,
+        Raufen8,
+        Schilde10,
+        Schwerter12,
+        Zweihandschwerter10
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, Eitelkeit),
+        VerpflichtungenIIII(Dienstherr)
+    ],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie),
+        Zerbrechlich,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Fedorino-Schwertgeselle
+profession!(
+    FedorinoSchwertgeselle,
+    "Fedorino-Schwertgeselle",
+    389,
+    vec![
+        GE13(
+            fuerdieSFBeidhaendigerKampfI,
+            FinteI,
+            Klingenfaenger,
+            Kreuzblock,
+            VorstoßundFedorinoStil
+        ),
+        VorteilAdel(510),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, DuellKodex, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        FertigkeitsspezialisierungEinschuechtern,
+        BeidhaendigerKampfI,
+        FinteI,
+        FedorinoStil,
+        Klingenfaenger,
+        Kreuzblock,
+        Vorstoß
+    ],
+    vec![Armbrueste10, Dolche12, Fechtwaffen12, Raufen10],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        Gutaussehend,
+        HoheLebenskraft,
+        Reich,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, Eitelkeit, Spielsucht, Verschwendungssucht),
+        SchlechteEigenschaften(Neugier),
+        VerpflichtungenI(Lehrmeister)
+    ],
+    vec![Unscheinbar, allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Blutrausch,
+        Fettleibig,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Ferdoker Lanzerin
+profession!(
+    FerdokerLanzerin,
+    "Ferdoker Lanzerin",
+    274,
+    vec![
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        SonderfertigkeitBerittenerKampf(20),
+        SonderfertigkeitLanzenangriff(10),
+        NachteilVerpflichtungenI(Einheit, FuerstentumKosch)(10)
+    ],
+    vec![
+        SprachenSchriften4,
+        FertigkeitsspezialisierungReiten,
+        BelastungsgewoehnungI
+    ],
+    vec![Dolche8, Lanzen12, Raufen10, Schwerter11],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![Persoenlichkeitsschwaechen(Arroganz, Eitelkeit)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie),
+        Zerbrechlich,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Gardist
+profession!(
+    Gardist,
+    "Gardist",
+    246,
+    vec![
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        SprachenSchriften10,
+        FertigkeitsspezialisierungGassenwissen,
+        BelastungsgewoehnungI,
+        WuchtschlagI
+    ],
+    vec![
+        Armbrueste10,
+        Raufen8,
+        zweiderfolgendenKampftechniken10Hiebwaffen,
+        Schwerter,
+        Stangenwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        HoheZaehigkeit,
+        VerbesserteRegeneration(Lebensenergie)
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz),
+        VerpflichtungenII(Buergermeister, Rat, Stadt, Adliger, etc)
+    ],
+    vec![],
+    vec![Blutrausch, SchlechteRegeneration(Lebensenergie), Stumm],
+    vec![]
+);
+
+//Garether Kriegerin
+profession!(
+    GaretherKriegerin,
+    "Garether Kriegerin",
+    355,
+    vec![
+        GE13(fuerdieSFFinteIundGarethStil),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        SonderfertigkeitBerittenerKampf(fuerdieSFLanzenangriffundGarethStil)(20),
+        SonderfertigkeitLanzenangriff(10),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        BelastungsgewoehnungI,
+        FinteI,
+        WuchtschlagI,
+        SprachenSchriften8
+    ],
+    vec![
+        Boegen10,
+        Dolche8,
+        Raufen8,
+        Schilde12,
+        Schwerter12,
+        Lanzen12,
+        Zweihandschwerter10
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Begabung(Reiten),
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Akademie, DienstoderLehnsherr)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Gladiatorin
+profession!(
+    Gladiatorin,
+    "Gladiatorin",
+    164,
+    vec![GE13(fuerdieSFFinteI), KK13(fuerdieSFWuchtschlagI)],
+    vec![
+        SprachenSchriften2,
+        FertigkeitsspezialisierungKraftakt,
+        FinteI,
+        WuchtschlagI
+    ],
+    vec![
+        Raufen12,
+        einederfolgendenKampftechniken12Hiebwaffen,
+        Schwerter,
+        Stangenwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendig,
+        Gutaussehend,
+        HoheLebenskraft,
+        HoheZaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        ZaeherHund
+    ],
+    vec![Blutrausch, Persoenlichkeitsschwaechen(Eitelkeit)],
+    vec![BegabunginGesellschaftstalenten],
+    vec![
+        Fettleibig,
+        NiedrigeZaehigkeit,
+        SchlechteRegeneration(Lebensenergie),
+        Zerbrechlich
+    ],
+    vec![]
+);
+
+//Havener Krieger
+profession!(
+    HavenerKrieger,
+    "Havener Krieger",
+    314,
+    vec![
+        GE13(fuerdieSFFinteIundVorstoß),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        BelastungsgewoehnungI,
+        FinteI,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![
+        Dolche8,
+        Lanzen8,
+        Raufen10,
+        Schilde10,
+        Schwerter12,
+        Wurfwaffen10,
+        Zweihandschwerter12
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, Eitelkeit),
+        VerpflichtungenIIII(Dienstherr)
+    ],
+    vec![allemagischenVorteile],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie),
+        Zerbrechlich,
+        allemagischenNachteile
+    ],
+    vec![]
+);
+
+//Heckenreiterin
+profession!(
+    Heckenreiterin,
+    "Heckenreiterin",
+    280,
+    vec![
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        Adel(5)
+    ],
+    vec![
+        SprachenSchriften6,
+        FertigkeitsspezialisierungReiten,
+        BelastungsgewoehnungI,
+        BerittenerKampf,
+        WuchtschlagI
+    ],
+    vec![
+        Boegen10,
+        Lanzen10,
+        Raufen8,
+        Schwerter12,
+        Stangenwaffen10,
+        einederfolgendenKampftechniken10Hiebwaffen,
+        Kettenwaffen,
+        Zweihandhiebwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        HoheLebenskraft,
+        Reich,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        ZaeherHund
+    ],
+    vec![Persoenlichkeitsschwaeche(Arroganz)],
+    vec![],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie)
+    ],
+    vec![]
+);
+
+//Hylailer Kriegerin
+profession!(
+    HylailerKriegerin,
+    "Hylailer Kriegerin",
+    416,
+    vec![
+        GE13(fuerdieSFFinteIundHylailosStil),
+        KK13(fuerdieSFWuchtschlagIundZuFallbringen),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften4,
+        FertigkeitsspezialisierungKoerperbeherrschung,
+        FinteI,
+        HylailosStil,
+        WuchtschlagI,
+        ZuFallbringen
+    ],
+    vec![
+        Dolche8,
+        Raufen10,
+        Schleudern10,
+        Schilde11,
+        Schwerter11,
+        Stangenwaffen11
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Gutaussehend,
+        HoheLebenskraft,
+        Reich,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![Persoenlichkeitsschwaechen(Arroganz, Eitelkeit)],
+    vec![Unscheinbar, allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Blutrausch,
+        Fettleibig,
+        Persoenlichkeitsschwaechen(Vorurteile),
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Hylailer Seesöldnerin
+profession!(
+    HylailerSeesoeldnerin,
+    "Hylailer Seesöldnerin",
+    362,
+    vec![
+        GE13(fuerdieSFFinteI, KampfimWasser),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![SprachenSchriften8, FinteI, KampfimWasser, WuchtschlagI],
+    vec![Dolche11, Raufen12, Schilde12, Schwerter12, Stangenwaffen12],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Begabung(Schwimmen),
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Dienstherr)],
+    vec![],
+    vec![
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie)
+    ],
+    vec![]
+);
+
+//Ishannah al’Kira-Balayan
+profession!(
+    IshannahalKiraBalayan,
+    "Ishannah al’Kira-Balayan",
+    365,
+    vec![
+        GE13(fuerdieSFBeidhaendigerKampfI, FinteIundIshannahalKiraStil),
+        Klingenfaenger(10),
+        NachteilPrinzipientreueII(
+            WahrungvonStilundÄsthetikinallenHandlungen,
+            EhrenhafterKampf,
+            LoyalitaetzurAuftraggeberin
+        )(20)
+    ],
+    vec![
+        SprachenSchriften8,
+        BeidhaendigerKampfI,
+        FinteI,
+        IshannahalKiraStil
+    ],
+    vec![
+        Dolche12,
+        Faecher12,
+        Raufen11,
+        Schilde12,
+        Schwerter12,
+        Wurfwaffen10
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Beidhaendig,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        Wohlklang,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Schwertmeisterin)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Klippag-Schwertgeselle
+profession!(
+    KlippagSchwertgeselle,
+    "Klippag-Schwertgeselle",
+    364,
+    vec![
+        IN13(fuerdieSFKampfreflexeI),
+        GE13(fuerdieSFFinteI, Vorstoß),
+        KK13(fuerdieSFWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        FinteI,
+        KampfreflexeI,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![Dolche11, Raufen12, Schilde12, Schwerter12, Wurfwaffen8],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(
+            Arroganz,
+            Eitelkeit,
+            VorurteilevorallemgegenKrieger,
+            Ritter,
+            Soeldner
+        ),
+        VerpflichtungenI(Lehrmeisterin)
+    ],
+    vec![Unscheinbar, allemagischenVorteile],
+    vec![
+        Arm,
+        Blutrausch,
+        Fettleibig,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenNachteile
+    ],
+    vec![]
+);
+
+//Kriegerin
+profession!(
+    Kriegerin,
+    "Kriegerin",
+    216,
+    vec![
+        GE13(fuerdieSFFinteIundVorstoß),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        SprachenSchriften10,
+        FertigkeitsspezialisierungKriegskunst,
+        BelastungsgewoehnungI,
+        FinteI,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![
+        Raufen10,
+        einederfolgendenKampftechniken12HiebwaffenKettenwaffen,
+        Schwerter,
+        Zweihandhiebwaffen,
+        Zweihandschwerter
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        HoheLebenskraft,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, Eitelkeit),
+        PrinzipientreueIII(Kriegerkodex, ehrenhaftesVerhalten, SchutzderSchwachen),
+        VerpflichtungenIIII(Dienstherr)
+    ],
+    vec![Zauberer],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie),
+        Zerbrechlich
+    ],
+    vec![]
+);
+
+//Landwehrsoldat
+profession!(
+    Landwehrsoldat,
+    "Landwehrsoldat",
+    343,
+    vec![],
+    vec![SprachenSchriften2],
+    vec![
+        Dolche10,
+        Hiebwaffen10,
+        Raufen10,
+        einedernachfolgendenKampftechnikenauf10SchwerteroderStangenwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        ZaeherHund
+    ],
+    vec![Arm, Unfrei],
+    vec![allegeweihtenVorteile],
+    vec![
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Lanisto
+profession!(
+    Lanisto,
+    "Lanisto",
+    349,
+    vec![GE13(fuerdieSFFinteI), KK13(fuerdieSFWuchtschlagI)],
+    vec![
+        SprachenSchriften6,
+        FertigkeitsspezialisierungEinschuechtern,
+        FinteI,
+        WuchtschlagI
+    ],
+    vec![
+        Dolche10,
+        Hiebwaffen12,
+        Schilde11,
+        Schwerter12,
+        Stangenwaffen11,
+        Raufen12
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        ZaeherHund
+    ],
+    vec![SchlechteEigenschaft(Goldgier, Jaehzorn)],
+    vec![Adel],
+    vec![Blind, Blutrausch, Taub, Zerbrechlich],
+    vec![]
+);
+
+//Marwan Sahib-Balayan
+profession!(
+    MarwanSahibBalayan,
+    "Marwan Sahib-Balayan",
+    391,
+    vec![
+        IN13(fuerdieSFAufmerksamkeitundPraeziserSchuss / WurfI),
+        GE13(fuerdieSFBeidhaendigerKampfI, FinteIundMarwanSahibStil),
+        NachteilPrinzipientreueII(Loyalitaet, KampfgegenechsischeUmtriebe, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften6,
+        FertigkeitsspezialisierungVerbergen,
+        Aufmerksamkeit,
+        BeidhaendigerKampfI,
+        FinteI,
+        MarwanSahibStil,
+        PraeziserSchuss / WurfI
+    ],
+    vec![Dolche8, Raufen10, Schwerter12, Wurfwaffen12],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Entfernungssinn,
+        Fuchssinn,
+        Giftresistenz,
+        HoheSeelenkraft,
+        Immunitaetgegen(Gift),
+        Richtungssinn,
+        Schlangenmensch,
+        Schwerzuverzaubern,
+        Waffenbegabung,
+        Zeitgefuehl
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, Unheimlich, VorurteilevorallemgegenEchsenwesen),
+        SchlechteEigenschaften(Neugier),
+        VerpflichtungenII(Lehrmeister, Dienstherr)
+    ],
+    vec![Adel, allemagischenundgeweihtenVorteile],
+    vec![
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Nachtblind,
+        NiedrigeSeelenkraft,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Mengbiller Krieger
+profession!(
+    MengbillerKrieger,
+    "Mengbiller Krieger",
+    390,
+    vec![
+        MU13(fuerdieSFMengbillaStil),
+        GE13(diedieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFSchildspalterundWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzdesGlaubens)(20)
+    ],
+    vec![
+        SprachenSchriften6,
+        FertigkeitsspezialisierungSelbstbeherrschung,
+        BelastungsgewoehnungI,
+        FinteI,
+        MengbillaStil,
+        Schildspalter,
+        WuchtschlagI
+    ],
+    vec![Armbrueste10, Dolche8, Hiebwaffen12, Raufen10, Schwerter11],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Giftresistenz,
+        Hitzeresistenz,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Streitsucht, Unheimlich),
+        SchlechteEigenschaften(Goldgier, Spielsucht),
+        VerpflichtungenIIII(Dienstherr)
+    ],
+    vec![Vertrauenerweckend, allemagischenundgeweihtenVorteile],
+    vec![
+        AngstvorTotenundUntoten,
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie),
+        Zerbrechlich
+    ],
+    vec![]
+);
+
+//Metessa Galora-Schwertgesellin
+profession!(
+    MetessaGaloraSchwertgesellin,
+    "Metessa Galora-Schwertgesellin",
+    357,
+    vec![
+        GE13(
+            fuerdieSFFinteI,
+            EinhaendigerKampf,
+            MetessaGaloraStilundPraeziserStichI
+        ),
+        NachteilPrinzipientreueI(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(10)
+    ],
+    vec![
+        SprachenSchriften8,
+        FinteI,
+        EinhaendigerKampf,
+        MetessaGaloraStil,
+        PraeziserStichI
+    ],
+    vec![
+        Armbrueste11,
+        Dolche12,
+        Fechtwaffen12,
+        Raufen12,
+        Wurfwaffen11
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        Wohlklang,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Schwertmeisterin)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Neersander Krieger
+profession!(
+    NeersanderKrieger,
+    "Neersander Krieger",
+    411,
+    vec![
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagIundNeersandStil),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften6BelastungsgewoehnungI,
+        FinteI,
+        NeersandStil,
+        WuchtschlagI
+    ],
+    vec![
+        Boegen10,
+        Dolche10,
+        Hiebwaffen10,
+        Raufen12,
+        Schwerter12,
+        Zweihaender12,
+        Wurfwaffen12
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        Wohlklang,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Akademie, DienstoderLehnsherr)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Neethaner Kriegerin
+profession!(
+    NeethanerKriegerin,
+    "Neethaner Kriegerin",
+    348,
+    vec![
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        SprachenSchriften8,
+        BelastungsgewoehnungI,
+        BerittenerKampf.FinteI,
+        WuchtschlagI
+    ],
+    vec![Dolche12, Hiebwaffen11, Schilde10, Schwerter12],
+    vec![
+        KoerperKlettern3,
+        Koerperbeherrschung5,
+        Kraftakt5,
+        Reiten8,
+        Schwimmen3,
+        Selbstbeherrschung4,
+        Sinnesschaerfe2,
+        Tanzen4,
+        Zechen2GesellschaftEinschuechtern3,
+        Etikette6,
+        Menschenkenntnis4,
+        Willenskraft4NaturOrientierung3WissenBrett & Gluecksspiel2,
+        Geographie4,
+        Geschichtswissen4,
+        Goetter & Kulte4,
+        Kriegskunst6,
+        Rechnen2,
+        Rechtskunde3,
+        Sagen & Legenden2HandwerkFahrzeuge2,
+        Handel2,
+        HeilkundeWunden5
+    ],
+    vec![],
+    vec![],
+    vec![
+        Begabung(Reiten),
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Dienstherr)],
+    vec![],
+    vec![
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie)
+    ],
+    vec![]
+);
+
+//Oloranthe della Cerrano-Schwertgeselle
+profession!(
+    OloranthedellaCerranoSchwertgeselle,
+    "Oloranthe della Cerrano-Schwertgeselle",
+    357,
+    vec![
+        IN13(fuerdieSFKampfreflexeI),
+        GE13(fuerdieSFFinteIundVorstoß),
+        KK13(fuerdieSFWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        FinteI,
+        KampfreflexeI,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![Raufen12, Schilde12, Schwerter12, Wurfwaffen10],
+    vec![
+        KoerperKoerperbeherrschung6,
+        Kraftakt5,
+        Reiten2,
+        Schwimmen6,
+        Selbstbeherrschung6,
+        Sinnesschaerfe6,
+        Zechen4GesellschaftBetoeren4,
+        Etikette5,
+        Gassenwissen4,
+        Menschenkenntnis5,
+        Willenskraft4NaturOrientierung2,
+        Tierkunde2WissenGeographie3,
+        Geschichtswissen3,
+        Goetter & Kulte3,
+        Kriegskunst4,
+        Mechanik3,
+        Rechnen4,
+        Rechtskunde2,
+        Sagen & Legenden5HandwerkBoote & Schiffe4,
+        HeilkundeWunden3
+    ],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(
+            Arroganz,
+            Eitelkeit,
+            VorurteilevorallemgegenKrieger,
+            Ritter,
+            Soeldner
+        ),
+        VerpflichtungenI(Lehrmeisterin)
+    ],
+    vec![],
+    vec![
+        Arm,
+        Blutrausch,
+        Fettleibig,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei
+    ],
+    vec![]
+);
+
+//Ottajasko-Rekkerin
+profession!(
+    OttajaskoRekkerin,
+    "Ottajasko-Rekkerin",
+    295,
+    vec![
+        IN13(fuerdieSFAufmerksamkeit),
+        GE13(fuerdieSFFinteI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![SprachenSchriften4, Aufmerksamkeit, Finte1, Wuchtschlag1],
+    vec![
+        Hiebwaffen10,
+        Raufen12,
+        Schwerter10,
+        Wurfwaffen6,
+        Zweihandhiebwaffen8
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Ottajasko)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Premer Kriegerin
+profession!(
+    PremerKriegerin,
+    "Premer Kriegerin",
+    410,
+    vec![
+        GE13(diedieSFFinteIundPremStil),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFSchildspalterundWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften4,
+        FertigkeitsspezialisierungEinschuechtern,
+        BelastungsgewoehnungI,
+        FinteI,
+        PremStil,
+        Schildspalter,
+        WuchtschlagI
+    ],
+    vec![
+        Dolche8,
+        Raufen10,
+        Schilde12,
+        Wurfwaffen10,
+        einederfolgendenKampftechniken12,
+        eineweitere10Hiebwaffen,
+        Schwerter,
+        Zweihandhiebwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        Reich,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenI(Dienstherr)],
+    vec![Unscheinbar, allemagischenundgeweihtenVorteile],
+    vec![
+        Behaebig,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Ritter
+profession!(
+    Ritter,
+    "Ritter",
+    230,
+    vec![
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        SprachenSchriften10,
+        FertigkeitsspezialisierungReiten,
+        BelastungsgewoehnungI,
+        FinteI,
+        WuchtschlagI
+    ],
+    vec![
+        Lanzen10,
+        Raufen8,
+        Schwerter12,
+        Zweihandschwerter10,
+        einederfolgendenKampftechniken10Hiebwaffen,
+        Kettenwaffen,
+        Zweihandhiebwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        Gutaussehend,
+        HoheLebenskraft,
+        Reich,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, Eitelkeit),
+        PrinzipientreueIIII(Ritterkodex, ehrenhaftesVerhalten, SchutzderSchwachen),
+        VerpflichtungenII(Lehnsherr)
+    ],
+    vec![],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie)
+    ],
+    vec![]
+);
+
+//Ritter der Streitenden Königreiche
+profession!(
+    RitterderStreitendenKoenigreiche,
+    "Ritter der Streitenden Königreiche",
+    280oder293(jenachgewählterVariante, eineVariantemussgewähltwerden),
+    vec![
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        Adel(5),
+        KulturAndergasteroderNostrier
+    ],
+    vec![
+        SprachenSchriften4,
+        FertigkeitsspezialisierungReiten,
+        BelastungsgewoehnungI,
+        FinteI,
+        WuchtschlagI
+    ],
+    vec![
+        Lanzen10,
+        Raufen10,
+        Schwerter11,
+        Zweihandschwerter11,
+        einederfolgendenKampftechniken10Boegen,
+        Hiebwaffen,
+        Kettenwaffen,
+        Zweihandhiebwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        Reich,
+        VerbesserteRegeneration(Lebensenergie),
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(Arroganz, Eitelkeit, VorurteilegegenAndergasteroderNostrier),
+        PrinzipientreueIIII(Ritterkodex, ehrenhaftesVerhalten, SchutzderSchwachen),
+        SchlechteEigenschaften(Aberglaube),
+        VerpflichtungenII(Lehnsherr)
+    ],
+    vec![],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie)
+    ],
+    vec![]
+);
+
+//Rommilyser Kriegerin
+profession!(
+    RommilyserKriegerin,
+    "Rommilyser Kriegerin",
+    319,
+    vec![
+        MU13(fuerdieSFRommilysStil),
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        SonderfertigkeitAnfuehrer(10)(fuerdieSFRommilysStil),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften8,
+        BelastungsgewoehnungI,
+        FinteI,
+        RommilysStil
+    ],
+    vec![
+        Armbrueste10,
+        Dolche10,
+        Lanzen10,
+        Raufen10,
+        Schwerter12,
+        Zweihandschwerter12
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        Wohlklang,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Akademie, DienstoderLehnsherr)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Räuberin
+profession!(
+    Raeuberin,
+    "Räuberin",
+    310,
+    vec![],
+    vec![SprachenSchriften4],
+    vec![
+        Boegen10,
+        Dolche10,
+        Raufen12,
+        einederfolgendenKampftechnikenauf11Hiebwaffen,
+        Schwerter,
+        Stangenwaffen
+    ],
+    vec![
+        KoerperKlettern4,
+        Koerperbeherrschung5,
+        Kraftakt5,
+        Selbstbeherrschung3,
+        Sinnesschaerfe5,
+        Zechen5GesellschaftEinschuechtern5,
+        Menschenkenntnisse3,
+        Überreden4,
+        Willenskraft3NaturFesseln5,
+        Orientierung5,
+        Pflanzenkunde3,
+        Tierkunde4,
+        Wildnisleben5WissenGeschichtswissen2,
+        Goetter & Kulte3,
+        Kriegskunst2,
+        Rechnen2,
+        Rechtskunde4,
+        Sagen & Legenden6HandwerkFahrzeuge3,
+        Handel3,
+        HeilkundeKrankheiten3,
+        HeilkundeWunden4,
+        Lederbearbeitung3,
+        Holzbearbeitung3,
+        Metallbearbeitung3,
+        Steinbearbeitung3,
+        Stoffbearbeitung3
+    ],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        ZaeherHund
+    ],
+    vec![Arm, Unfrei],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Sappeurin
+profession!(
+    Sappeurin,
+    "Sappeurin",
+    1,
+    vec![
+        IN13(fuerdieSFSappeurStil),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        SprachenSchriften6,
+        BelastungsgewoehnungI,
+        SappeurStil,
+        WuchtschlagI
+    ],
+    vec![Dolche10, Hiebwaffen12, Raufen10, Schwerter10],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(DienstoderLehnsherr)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Sarvinio della Monte-Schwertgesellin
+profession!(
+    SarviniodellaMonteSchwertgesellin,
+    "Sarvinio della Monte-Schwertgesellin",
+    321,
+    vec![
+        MU13(fuerdieSFSarviniodellaMonteStil),
+        GE13(fuerdieSFBeidhaendigerKampfIundFinteI)
+    ],
+    vec![
+        SprachenSchriften8FinteI,
+        BeidhaendigerKampfI,
+        SarviniodellaMonteStil
+    ],
+    vec![Dolche8, Raufen11, Schilde12, Schwerter12],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendig,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        Wohlklang,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Schwertmeisterin)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Scanlail ui Uinin-Schwertgeselle
+profession!(
+    ScanlailuiUininSchwertgeselle,
+    "Scanlail ui Uinin-Schwertgeselle",
+    379,
+    vec![
+        IN13(fuerdieSFKampfreflexeI),
+        GE13(fuerdieSFFinteI, VorstoßundScanlailniUininStil),
+        KK13(fuerdieSFWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        FinteI,
+        KampfreflexeI,
+        ScanlailniUininStil,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![Dolche11, Raufen12, Schilde12, Schwerter12, Wurfwaffen10],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(
+            Arroganz,
+            Eitelkeit,
+            VorurteilevorallemgegenKrieger,
+            Ritter,
+            Soeldner
+        ),
+        VerpflichtungenI(Lehrmeisterin)
+    ],
+    vec![Unscheinbar, allemagischenVorteile],
+    vec![
+        Arm,
+        Blutrausch,
+        Fettleibig,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenNachteile
+    ],
+    vec![]
+);
+
+//Schaukämpferin
+profession!(
+    Schaukaempferin,
+    "Schaukämpferin",
+    268,
+    vec![KK13(fuerdieSFHaltegriff, SchwitzkastenundWuchtschlagI)],
+    vec![SprachenSchriften4, Haltegriff, Schwitzkasten, WuchtschlagI],
+    vec![Hiebwaffen11, Raufen12],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![Arm],
+    vec![],
+    vec![
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie)
+    ],
+    vec![]
+);
+
+//Schwertgesellin nach Scanlail ni Uinin
+profession!(
+    SchwertgesellinnachScanlailniUinin,
+    "Schwertgesellin nach Scanlail ni Uinin",
+    364,
+    vec![
+        IN13(fuerdieSFKampfreflexeI),
+        GE13(fuerdieSFFinteIundVorstoß),
+        KK13(fuerdieSFWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        FinteI,
+        KampfreflexeI,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![Dolche11, Raufen12, Schilde12, Schwerter12, Wurfwaffen10],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Beidhaendigkeit,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaechen(
+            Arroganz,
+            Eitelkeit,
+            VorurteilevorallemgegenKrieger,
+            Ritter,
+            Soeldner
+        ),
+        VerpflichtungenI(Lehrmeisterin)
+    ],
+    vec![Unscheinbar, allemagischenVorteile],
+    vec![
+        Arm,
+        Blutrausch,
+        Fettleibig,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenNachteile
+    ],
+    vec![]
+);
+
+//Seekriegerin
+profession!(
+    Seekriegerin,
+    "Seekriegerin",
+    360,
+    vec![
+        GE13(fuerdieSFFinteI, KampfimWasserundSeekriegerStil),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        SprachenSchriften8,
+        FinteI,
+        KampfimWasser,
+        SeekriegerStil,
+        WuchtschlagI
+    ],
+    vec![Dolche11, Raufen12, Schilde12, Schwerter12, Stangenwaffen12],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Begabung(Schwimmen),
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(DienstoderLehnsherr)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie)
+    ],
+    vec![]
+);
+
+//Seesoldat
+profession!(
+    Seesoldat,
+    "Seesoldat",
+    260,
+    vec![
+        IN13(fuerSFAufmerksamkeit),
+        KO13(fuerSFBelastungsgewoehnungI),
+        KK13(fuerSFWuchtschlagI)
+    ],
+    vec![
+        SprachenSchriften10,
+        FertigkeitsspezialisierungKriegskunst,
+        Aufmerksamkeit,
+        BelastungsgewoehnungI,
+        WuchtschlagI
+    ],
+    vec![
+        Armbrueste10,
+        Dolche10,
+        Raufen10,
+        einederfolgendenKampftechniken11Hiebwaffen,
+        Schwerter,
+        Stangenwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Begabung(Schwimmen),
+        HoheLebenskraft,
+        Richtungssinn,
+        VerbesserteRegeneration(Lebensenergie)
+    ],
+    vec![SchlechteEigenschaften(Aberglaube, Jaehzorn)],
+    vec![],
+    vec![NiedrigeLebenskraft, SchlechteRegeneration(Lebensenergie)],
+    vec![]
+);
+
+//Soldatin
+profession!(
+    Soldatin,
+    "Soldatin",
+    398,
+    vec![
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        SprachenSchriften6,
+        FertigkeitsspezialisierungKriegskunst,
+        BelastungsgewoehnungI,
+        FinteI,
+        WuchtschlagI
+    ],
+    vec![
+        Dolche10,
+        Schilde10,
+        einederfolgendenKampftechniken12,
+        eineweitere10Boegen,
+        Fechtwaffen,
+        Hiebwaffen,
+        Kettenwaffen,
+        Schwerter,
+        Stangenwaffen,
+        Zweihandschwerter,
+        Zweihandhiebwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![Arm, VerpflichtungenIIII(Dienstherr)],
+    vec![Adel, allemagischenundgeweihtenVorteile],
+    vec![SchlechteRegeneration(Lebensenergie), Zerbrechlich],
+    vec![]
+);
+
+//Stammeskriegerin
+profession!(
+    Stammeskriegerin,
+    "Stammeskriegerin",
+    289,
+    vec![
+        IN13(fuerdieSFAufmerksamkeit),
+        GE13(fuerdieSFFinteI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        Sprachenfuerinsgesamt4,
+        FertigkeitsspezialisierungEinschuechtern,
+        Aufmerksamkeit,
+        FinteI,
+        WuchtschlagI
+    ],
+    vec![
+        Boegen10,
+        Raufen12,
+        einederfolgendenKampftechniken12Hiebwaffen,
+        Schwerter,
+        Stangenwaffen,
+        Zweihandhiebwaffen,
+        Zweihandschwerter
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        Richtungssinn,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Blutrausch,
+        Persoenlichkeitsschwaechen(Arroganz, VorurteilevorallemgegenNichtstammesmitglieder),
+        SchlechteEigenschaften(Aberglaube, Jaehzorn, Rachsucht),
+        VerpflichtungenIII(Sippe)
+    ],
+    vec![BegabunginGesellschaftstalenten, SozialeAnpassungsfaehigkeit],
+    vec![
+        Behaebig,
+        Fettleibig,
+        SchlechteRegeneration(Lebensenergie),
+        Zerbrechlich
+    ],
+    vec![]
+);
+
+//Stutzer
+profession!(
+    Stutzer,
+    "Stutzer",
+    343,
+    vec![
+        GE13(fuerdieSFFinteI),
+        NachteilPrinzipientreueI(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(10)
+    ],
+    vec![SprachenSchriften8, FinteI],
+    vec![Dolche11, Fechtwaffen12, Raufen12, Wurfwaffen10],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        Wohlklang,
+        ZaeherHund
+    ],
+    vec![],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Söldner
+profession!(
+    Soeldner,
+    "Söldner",
+    202,
+    vec![
+        IN13(fuerdieSFAufmerksamkeit),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        Sprachenfuerinsgesamt6,
+        FertigkeitsspezialisierungKriegskunst,
+        Aufmerksamkeit,
+        BelastungsgewoehnungI,
+        WuchtschlagI
+    ],
+    vec![
+        Armbrueste10,
+        Raufen10,
+        einederfolgendenKampftechniken10Hiebwaffen,
+        Schwerter,
+        Stangenwaffen,
+        Zweihandschwerter,
+        Zweihandhiebwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        Richtungssinn,
+        VerbesserteRegeneration(Lebensenergie)
+    ],
+    vec![SchlechteEigenschaften(Aberglaube, Jaehzorn)],
+    vec![],
+    vec![Prinzipientreue, SchlechteRegeneration(Lebensenergie)],
+    vec![]
+);
+
+//Tannhaus-Schwertgeselle
+profession!(
+    TannhausSchwertgeselle,
+    "Tannhaus-Schwertgeselle",
+    375,
+    vec![
+        IN13(fuerdieSFAufmerksamkeit),
+        GE13(fuerdieSFFinteI, TannhausStil, Vorstoß),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        VorteilAdel(515),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, DuellKodex, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften8,
+        Aufmerksamkeit,
+        BelastungsgewoehnungI,
+        FinteI,
+        TannhausStil,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![Dolche11, Raufen12, Schwerter12, Zweihandschwerter12],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        Wohlklang,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Schwertmeister)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Thorwaler Krieger
+profession!(
+    ThorwalerKrieger,
+    "Thorwaler Krieger",
+    424,
+    vec![
+        GE13(fuerdieSFBeidhaendigerKampfIundVorstoß),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFThorwalStilundWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften6,
+        BeidhaendigerKampfI,
+        BelastungsgewoehnungI,
+        ThorwalStil,
+        VorstoßundWuchtschlagI
+    ],
+    vec![
+        Dolche10,
+        Raufen12,
+        Hiebwaffen12,
+        Schilde12,
+        Schwerter12,
+        Zweihandhiebwaffen11,
+        Wurfwaffen10
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(AkademieoderDienstherr)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Vinsalter Krieger
+profession!(
+    VinsalterKrieger,
+    "Vinsalter Krieger",
+    389,
+    vec![
+        IN13(fuerdieSFPraeziserSchuss / WurfI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        GE13(fuerdieSFFinteIundVinsaltStil),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften10,
+        BelastungsgewoehnungI,
+        FinteI,
+        PraeziserSchuss / WurfI,
+        VinsaltStil
+    ],
+    vec![
+        Armbrueste11,
+        Dolche11,
+        Fechtwaffen12,
+        Raufen11,
+        Schwerter12,
+        Zweihandschwerter12
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        Adel,
+        Gutaussehend,
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        Wohlklang,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Akademie, DienstoderLehnsherr)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
+
+//Windhager Sippenkrieger
+profession!(
+    WindhagerSippenkrieger,
+    "Windhager Sippenkrieger",
+    298,
+    vec![
+        IN13(fuerdieSFAufmerksamkeit),
+        GE13(fuerdieSFFinteI),
+        KK13(fuerdieSFWuchtschlagI)
+    ],
+    vec![
+        SprachenSchriften4,
+        FertigkeitsspezialisierungKriegskunst,
+        Aufmerksamkeit,
+        FinteI,
+        WuchtschlagI
+    ],
+    vec![
+        Dolche11,
+        Raufen11,
+        Schleuder11,
+        einederfolgendenKampftechniken12,
+        dieandere11Schwerter,
+        Stangenwaffen
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        Richtungssinn,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![
+        Persoenlichkeitsschwaeche(VorurteilevorallemgegenHorasierundAdlige),
+        SchlechteEigenschaft(Aberglaube, Jaehzorn, Rachsucht),
+        VerpflichtungIII(Sippe)
+    ],
+    vec![
+        Adel,
+        BegabunginGesellschaftstalenten,
+        SozialeAnpassungsfaehigkeit
+    ],
+    vec![Behaebig, SchlechteRegeneration(Lebensenergie), Zerbrechlich],
+    vec![]
+);
+
+//Winhaller Kriegerin
+profession!(
+    WinhallerKriegerin,
+    "Winhaller Kriegerin",
+    353,
+    vec![
+        GE13(fuerdieSFFinteIundVorstoß),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        NachteilPrinzipientreueII(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(20)
+    ],
+    vec![
+        SprachenSchriften6,
+        BelastungsgewoehnungI,
+        FinteI,
+        Vorstoß,
+        WuchtschlagI
+    ],
+    vec![
+        Boegen10,
+        Dolche10,
+        Lanzen8,
+        Raufen10,
+        Schilde12,
+        Schwerter12,
+        Zweihandschwerter10,
+        Wurfwaffen10
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        SozialeAnpassungsfaehigkeit,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIIII(Dienstherr)],
+    vec![allemagischenVorteile],
+    vec![
+        Blutrausch,
+        Fettleibigkeit,
+        SchlechteRegeneration(Lebensenergie),
+        Zerbrechlich,
+        allemagischenNachteile
+    ],
+    vec![]
+);
+
+//Xorloscher Drachenkämpfer
+profession!(
+    XorloscherDrachenkaempfer,
+    "Xorloscher Drachenkämpfer",
+    383,
+    vec![
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagI),
+        SpeziesZwerg,
+        NachteilPrinzipientreueI(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(10)
+    ],
+    vec![
+        SprachenSchriften4,
+        BelastungsgewoehnungI,
+        FinteI,
+        WuchtschlagI
+    ],
+    vec![
+        Dolche10,
+        Hiebwaffen12,
+        Raufen10,
+        Schilde12,
+        Stangenwaffen12,
+        Zweihandhiebwaffen12,
+        Armbrueste11
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(XorloscherAkademie)],
+    vec![],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei
+    ],
+    vec![]
+);
+
+//Zwergenkrieger nach Hardas
+profession!(
+    ZwergenkriegernachHardas,
+    "Zwergenkrieger nach Hardas",
+    388,
+    vec![
+        GE13(fuerdieSFFinteI),
+        KO13(fuerdieSFBelastungsgewoehnungI),
+        KK13(fuerdieSFWuchtschlagIundHardasStil),
+        SpeziesZwerg(fuerdieSFHardasStil),
+        NachteilPrinzipientreueI(Ehrenhaftigkeit, Loyalitaet, SchutzderSchwachen)(10)
+    ],
+    vec![
+        SprachenSchriften8,
+        BelastungsgewoehnungI,
+        FinteI,
+        HardasStil,
+        WuchtschlagI
+    ],
+    vec![
+        Dolche10,
+        Raufen12,
+        Hiebwaffen12,
+        Schilde12,
+        Zweihandhiebwaffen12,
+        Armbrueste11
+    ],
+    vec![],
+    vec![],
+    vec![],
+    vec![
+        HoheLebenskraft,
+        VerbesserteRegeneration(Lebensenergie),
+        Waffenbegabung,
+        ZaeherHund
+    ],
+    vec![VerpflichtungenIII(Dienstherr)],
+    vec![allemagischenundgeweihtenVorteile],
+    vec![
+        Arm,
+        Behaebig,
+        Blutrausch,
+        Fettleibig,
+        Krankheitsanfaellig,
+        Lichtempfindlich,
+        SchlechteRegeneration(Lebensenergie),
+        Unfrei,
+        allemagischenundgeweihtenNachteile
+    ],
+    vec![]
+);
