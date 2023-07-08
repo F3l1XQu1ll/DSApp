@@ -23,7 +23,7 @@ Beispiel DSA5 Chartaktersheet:
 | in progress | Einarbeiten | Julian |
 | in progress | Dokumentation | | 
 | not | Issues | |
-| in progress | time table | |
+| in progress | time table | zur Abgabe fertig; Länge |
 
 
 ### Erstellen eines Charakters
