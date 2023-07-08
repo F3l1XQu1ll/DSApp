@@ -5,7 +5,7 @@ profession!(
     Achazschamane,
     "Achazschamane",
     322,
-    vec![Spezies(Achaz),
+    vec![Spezies Achaz,
         Kultur(Stammesachaz),
         VorteilGeweihter(25AP),
         NachteilPrinzipientreueI(Stammesregeln)(-10AP),
