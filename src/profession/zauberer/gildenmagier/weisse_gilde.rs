@@ -1,4 +1,7 @@
+use crate::crate_prof;
 use crate::profession;
+
+crate_prof!();
 
 //Weißmagier (Halle des Lebens zu Norburg)
 profession!(

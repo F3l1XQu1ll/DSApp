@@ -1,21 +1,23 @@
 use crate::{
     data::{Kampftechnik, Liturgy, Talent, Zauber},
     spezies::Spezies,
+    vorteile::Vorteil,
 };
 
 //Voraussetzungen allg implentiern
 pub enum Voraussetzung {
     Spezies(Spezies),
     Kultur(),
-    Vorteil(),
-    Nachteil(),
+    Vorteil(Vorteil),
+    Nachteil(Vorteil),
+    Sonderfertigkeit(),
 }
 
-//Vor-/Nachteile all implementieren
-pub enum Vorteile {
-    Vorteil,
-    Nachteil,
-}
+//Vor-/Nachteile allg implementieren
+//pub enum Vorteile {
+//    Vorteil,
+//    Nachteil,
+//}
 
 pub struct Sonderfertigkeit {}
 
@@ -29,16 +31,30 @@ pub struct Profession {
     talente: Vec<Talent>,
     zauber: Vec<Zauber>,
     liturgien: Vec<Liturgy>,
-    e_vorteile: Vec<Vorteile>,
-    e_nachteile: Vec<Vorteile>,
-    u_vorteile: Vec<Vorteile>,
-    u_nachteile: Vec<Vorteile>,
+    e_vorteile: Vec<Vorteil>,
+    e_nachteile: Vec<Vorteil>,
+    u_vorteile: Vec<Vorteil>,
+    u_nachteile: Vec<Vorteil>,
     varianten: Vec<Profession>,
 }
 
 #[macro_export]
 macro_rules! profession {
-    ($name_ident: ident, $name: expr, $ap: expr, $voraussetzung: expr, $sonderfertigkeiten: expr, $kampftechniken: expr, $talent: expr, $zauber: expr, $liturgien: expr, $e_vorteile: expr, $e_nachteile: expr, $u_vorteile: expr, $u_nachteile: expr, $varianten: expr) => {
+    ($name_ident: ident,
+    $name: expr,
+    $ap: expr,
+    $voraussetzung: expr,
+    $sonderfertigkeiten: expr,
+    $kampftechniken: expr,
+    $talent: expr,
+    $zauber: expr,
+    $liturgien: expr,
+    $e_vorteile: expr,
+    $e_nachteile: expr,
+    $u_vorteile: expr,
+    $u_nachteile: expr,
+    $varianten: expr) => {
+
         impl Profession {
             pub fn $name_ident() -> Profession {
                 Profession {
@@ -58,5 +74,70 @@ macro_rules! profession {
                 }
             }
         }
+    };
+}
+
+#[macro_export]
+macro_rules! crate_prof {
+    () => {
+        use crate::data::CharakterTalent;
+        use crate::spezies::Spezies;
+        use crate::vorteile::nachteile::{
+            AngstvorIBisIII, ArmIBisIII, Artefaktgebunden, Behaebig, Blind, Blutrausch,
+            BoeserNamensvetter, EingeschraenkterSinn, EmpfindlichkeitunedleMetalle, Farbenblind,
+            Fettleibig, Friedlos, GiftanfaelligIBisII, Glaesern, HaesslichIBisII, Hitzeempfindlich,
+            HitzeempfindlichII, InstabilerZauberer, Jagdwildgeruch, Kaelteempfindlich,
+            Kaeltestarre, KeinVertrauter, KeineFlugsalbe, KleineZauberauswahlIBisII,
+            KoerpergebundeneKraft, KoerperlicheAuffaelligkeit, KrankheitsanfaelligIBisII,
+            LaecherlicherName, LaestigeBluetenfeen, LaestigeMindergeister, Lernfaul,
+            Lichtempfindlich, LichtempfindlichII, MagischeEinschraenkung, MisslungeneReifepruefung,
+            Nachtblind, NiedrigeAstralkraftIBisVII, NiedrigeKarmalkraftIBisVII,
+            NiedrigeLebenskraftIBisVII, NiedrigeSeelenkraft, NiedrigeZaehigkeit, PechIBisIII,
+            Pechmagnet, Persoenlichkeitsschwaeche, PrinzipientreueIBisIII, Raubtiergeruch,
+            Schlafwandler, SchlechteAngewohnheit, SchlechteEigenschaft,
+            SchlechteRegenerationAstralenergieIBisIII, SchlechteRegenerationKarmaenergieIBisIII,
+            SchlechteRegenerationLebensenergieIBisIII, SchlechtesNamensgedaechtnis, Schurkenname,
+            SchwacheZaubermelodien, SchwacheZaubertaenze, SchwacherAstralkoerper,
+            SchwacherKarmalkoerper, SensiblerGeruchssinn, Sprachfehler, StechenderOrkgeruch,
+            Stigma, Stumm, Taub, Unfaehig, Unfrei, UnpassenderName,
+            UnvertraeglichkeitgegenueberAlkohol, VerminderteZaubermelodienIBisIII,
+            VerminderteZaubertaenzeIBisIII, VerpflichtungenIBisIII, Verstuemmelt, Verweichlicht,
+            WahrerName, WenigePredigtenIBisII, WenigeVisionenIBisII, WildeMagie, Yurach,
+            ZauberanfaelligIBisII, Zerbrechlich,
+        };
+        use crate::vorteile::vorteile::{
+            AdelIBisIII, AffinitaetzuDaemonen, AffinitaetzuElementaren, Akoluth, Allerweltsname,
+            Altersresistenz, AngenehmerGeruch, AnimalischeKraft, Basiliskentoeter,
+            BegabterAufreisserin, Begabung, Beidhaendig, BissIBisIII, Blumenduft, Blutzauberer,
+            DickesFell, Drachentoeter, DunkelsichtIBisIII, EinblickeinsVerborgene, EinkommenIBisVI,
+            EisenaffineAura, Eisern, Entfernungssinn, FeenblutBluetenfee, FeenblutDryade,
+            FeenblutGrosserEberbiestinger, FeenblutNixer, Feenfreund, Flink, Fuchssinn,
+            GeborenerRedner, Geweihter, GiftresistenzIBisII, GlatteHaut, GlueckIBisIII, Gon,
+            Greifschwanz, GrosseZauberauswahlIBisII, GutaussehendIBisII, GutesNamensgedaechtnis,
+            HarmoniedesWaldes, HartimNehmen, Hass, Hauttasche, HeldenhafterName,
+            HerausragendeFertigkeit, HerausragendeKampftechnik, HerausragenderSinn, Hitzeresistenz,
+            HoheAstralkraftIBisVII, HoheKarmalkraftIBisVII, HoheLebenskraftIBisVII,
+            HoheSeelenkraft, HoheZaehigkeit, ImmunitaetgegenGift, ImmunitaetgegenKrankheit,
+            Kaelteresistenz, KeinBanndesEisens, Koboldfreund, KontaktBettler, KontaktBotenreiter,
+            KontaktFreundausKindheitstagen, KontaktGeweihte, KontaktHandwerksmeister,
+            KontaktHehler, KontaktJunkerin, KontaktMagier, KontaktSchmuggler, KontaktSklavin,
+            KontaktSoeldnerhauptmann, KontaktSoldat, KontaktStadtmagistrat, KontaktStadtwache,
+            KontaktTempelvorsteherin, KontaktUnterweltkoenig, KontaktWirt, KraftderBaeume,
+            KrankheitsresistenzIBisII, LeichterGang, MachtvolleZaubermelodien,
+            MachtvolleZaubertaenze, MagischeEinstimmung, Mystiker, NatuerlicheWaffeBiss,
+            NatuerlicheWaffeSchwanz, NatuerlicherRuestungsschutzIBisII, Nichtschlaefer,
+            Pragmatiker, Prediger, ReichIBisX, Richtungssinn, Sagaheld, SaumagenIBisII,
+            Schlangenmensch, SchnellwiederaufdenBeinen, Schutzgeist, Schwerzuverzaubern,
+            Seesprache, SozialeAnpassungsfaehigkeit, Tierfreund, TiergeistauraPatron,
+            TierischeKampfgefaehrten, UnbeschwertesZaubern, Unscheinbar,
+            VerbesserteRegenerationAstralenergieIBisIII,
+            VerbesserteRegenerationKarmaenergieIBisIII,
+            VerbesserteRegenerationLebensenergieIBisIII, VerfuehrerischeGestalt, VerhuellteAura,
+            Vertrauenerweckend, Visionaer, Waffenbegabung, WalwutSwafskari, WasserdesLebens,
+            Wasserlebewesen, WeitreichendeZaubermelodienIBisIII, WeitreichendeZaubertaenzeIBisIII,
+            Wohlklang, Wolfsblut, Wolfsgebiss, Wolfskind, ZaeherHund, ZahlreichePredigtenIBisII,
+            ZahlreicheVisionenIBisII, Zauberer, Zeitgefuehl, ZusaetzlicheGliedmassenSchwanz,
+            ZweistimmigerGesang, Zwergennase,
+        };
     };
 }

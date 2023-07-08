@@ -11,6 +11,7 @@ mod display;
 mod erfahrungsgrade;
 mod liturgy;
 mod math;
+mod profession;
 mod spells;
 mod spells_index;
 mod spezies;

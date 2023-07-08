@@ -1,4 +1,7 @@
+use crate::crate_prof;
 use crate::profession;
+
+crate_prof!();
 
 //Graumagier (Halle der Antimagie zu Kuslik)
 profession!( 

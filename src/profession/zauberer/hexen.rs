@@ -1,5 +1,7 @@
+use crate::crate_prof;
 use crate::profession;
 
+crate_prof!();
 //Affenhexe
 profession!(
     Affenhexe,
