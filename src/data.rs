@@ -1,11 +1,6 @@
 use crate::{character_talents::CharakterTalentBases, erfahrungsgrade::Erfahrungsgrade};
 
-#[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
-pub struct KaP {
-    pub max: u16,
-    pub current: u16,
-}
-
+//---------------------- Leiteigenschaften ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub struct Attributes {
     pub mu: u8,
@@ -34,10 +29,17 @@ impl Attributes {
     }
 }
 
+//---------------------- Charakter Punkte ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, PartialEq, Eq, Clone)]
 pub enum CostType {
     #[default]
     AsP,
+}
+
+#[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
+pub struct KaP {
+    pub max: u16,
+    pub current: u16,
 }
 
 impl ToString for CostType {
@@ -55,9 +57,11 @@ pub struct Cost {
     pub costs_type: CostType,
 }
 
+//---------------------- Proben ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub struct Probe(pub [AttrType; 3]);
 
+//---------------------- Reichweite ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, PartialEq, Eq, Clone)]
 pub enum Range {
     #[default]
@@ -76,6 +80,7 @@ impl ToString for Range {
     }
 }
 
+//---------------------- Steigerungsfaktoren ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, PartialEq, Eq, Clone)]
 pub enum SteigerungsFaktor {
     #[default]
@@ -125,6 +130,7 @@ impl SteigerungsFaktor {
     }
 }
 
+//---------------------- Liturgien ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Liturgy {
@@ -143,6 +149,7 @@ pub struct Liturgy {
     pub show_editor: bool,
 }
 
+//---------------------- Talente ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Talent {
@@ -150,6 +157,7 @@ pub struct Talent {
     pub description: String,
 }
 
+//---------------------- Archetypen ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, PartialEq, Eq, Clone)]
 pub enum Archetype {
     #[default]
@@ -157,6 +165,7 @@ pub enum Archetype {
     Mage,
 }
 
+//---------------------- Ausrüstung ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Equipment {
@@ -165,6 +174,7 @@ pub struct Equipment {
     pub location: String,
 }
 
+//---------------------- Tiere ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Animal {
@@ -196,6 +206,7 @@ pub struct Animal {
     pub abilities: Vec<String>,
 }
 
+//---------------------- Geschlecht ----------------------
 #[derive(serde::Deserialize, serde::Serialize, Clone, PartialEq, Eq)]
 pub enum Gender {
     Female,
@@ -208,6 +219,8 @@ impl Default for Gender {
         Self::Diverse(String::new())
     }
 }
+
+//---------------------- Leiteigenschaften ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone, PartialEq, Eq)]
 pub enum AttrType {
     #[default]
@@ -297,6 +310,7 @@ impl std::ops::BitOr for AttrChanges {
     }
 }
 
+//---------------------- Charakter Atrribute ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct SpeciesBaseAttributes {
@@ -308,6 +322,7 @@ pub struct SpeciesBaseAttributes {
     pub initial_attribute_change: AttrChanges,
 }
 
+//---------------------- Spezies ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone, PartialEq, Eq)]
 pub enum Species {
     Achaz,
@@ -412,6 +427,7 @@ impl ToString for Species {
     }
 }
 
+//---------------------- Kosten: Attribute,Kampftechnik ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub struct AttrAPCost {
     pub ap_cost: u32,
@@ -426,6 +442,7 @@ pub struct Kampftechnik {
     pub stufe: u16,
 }
 
+//---------------------- Talente ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub struct CharakterTalent {
     pub base: CharakterTalentBases,
@@ -445,6 +462,7 @@ impl CharakterTalentBase {
     }
 }
 
+//---------------------- Professionen ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Profession {
@@ -459,6 +477,7 @@ pub struct Profession {
     pub show_editor: bool,
 }
 
+//---------------------- Persönlichkeit ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Identity {
@@ -479,6 +498,7 @@ pub struct Identity {
     pub characteristical: String,
 }
 
+//---------------------- Charakter  ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Character {
@@ -489,6 +509,7 @@ pub struct Character {
     pub attributes: Attributes,
 }
 
+//---------------------- Ziele ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub enum Zielkategorie {
     Zone(Option<&'static str>),
@@ -545,6 +566,7 @@ impl ToString for Zielkategorie {
     }
 }
 
+//---------------------- Zauber: Merkmal ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub enum Merkmal {
     #[default]
@@ -582,6 +604,7 @@ impl ToString for Merkmal {
     }
 }
 
+//---------------------- Zauber: Verbreitung ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone, PartialEq)]
 pub enum Verbreitung {
     #[default]
@@ -619,6 +642,7 @@ impl ToString for Verbreitung {
     }
 }
 
+//---------------------- Zauber: Erweiterung ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Erweiterung {
@@ -628,6 +652,7 @@ pub struct Erweiterung {
     pub desc: &'static str,
 }
 
+//---------------------- Zauber: Probemodifikatoren ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone, PartialEq)]
 pub enum ProbeModifikator {
     #[default]
@@ -645,6 +670,7 @@ impl ToString for ProbeModifikator {
     }
 }
 
+//---------------------- AsP (?) ----------------------
 #[derive(serde::Deserialize, serde::Serialize, Clone, PartialEq)]
 pub enum SpecialAsP {
     N(u16),
@@ -670,6 +696,7 @@ impl ToString for SpecialAsP {
     }
 }
 
+//---------------------- Zauber ----------------------
 // Zauber sind const und werden nur referenziert, müssen also nicht geclont oder serialisiert werden
 pub struct Zauber {
     pub name: &'static str,
@@ -705,6 +732,7 @@ pub struct ZauberTable {
     pub show_selector: bool,
 }
 
+//---------------------- Erfahrungsgrad / AP ----------------------
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Erfahrungsgrad {
