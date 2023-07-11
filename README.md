@@ -62,7 +62,162 @@ Beispiel DSA5 Chartaktersheet:
 | not | einheitliche Benennung| |
 
 ## Projekt UML (Ausschnitt)
-[![](https://mermaid.ink/img/pako:eNqVVv1O2zAQf5UoSAwYrTRAEwoIqXwNxLoitdsfLBNyk0trNXEi29lEGWhPswfbk-wc2_lqomn5x_b97nx3vq88u0Eaguu5QUyEuKRkwUniM58VZ-dyOsoy59lnDn7BknASSOCec2G3PnupuEuqlXhLQ2CSyifPuTU7A4gM4lh4zgPJ58BnZI5HMJgkMfIieD7jAGOSveaCrmHr6Ohk6_DgJH_3_tVwAo_IkudsIdDsEDznqkkwbERKTucS8MqR3RrDrenWvNJyRhK8b4rcbFHZvKbqkqneGHLG0wiEoCnznPty37rfiNjrT0-B5cnZmT6N8GXXensVR8D09obE-CqNY8pXRutNiiBfqQCo4xiYCJaWdVKyPfwAvoBGkIwl50RAZY3khEprjnJ9Z9fZfiMkkTTYxkcX0iiKFZIf64NY4YEeO_q0bpwWomA0J6CLwkISSWCPSRrubAv0bb8J2PDkGJ9dLfg95RJoDHWZrjw07EEqpDHQPL91u4qM9XozwiR7VBd4Tn54oCkZhyBlIZUoh4H_AsGrMnF0f4F8JgsxLQJK4j44ooulRBUaviNJhq4GS0ZXhqFMd4WXDs0KqmFZF1WClgYrz9FII6aV0jJ_N31ppXRNvG5U_-vEQGUtXDpYs6fMVJkowKL2HiOykilX4iXtuiBZ1jzCy7GQN7xQ9_UUCTO9Y_xZr3cf9Xr7Sa8XN3q9vtbrhyvDNzHrXbMO2rb1qNXLudGhl8vutqcjU4ZgjiXmtVFVd7Zz9LxDl0S3cX9-_f6XZDOetqadsqD_I2zY6OZ4x1cbpxPn8FtDfdP_zQwKQQScZrJolY081HNmbzCoTxaflV15MNhrIrafKqAaLT4rWqkzHP48qzc6nxV9tYNeNtkeTHXcLsi23w7M9uIOaNJ9m-7SHUDpJ76MGRIVwYyKilAbGE2iHhs1WjU8KmI1QirapCVox4nPau10OGyFoGpGCqqPxEajaYMme9rkdnW1ca2w6BsKqqtA0zeKfJPH31SiS06xtoAe3mZ-Ngq9z4YO7pYnHRzuvpsATwgN8Y-tKDPflUtIwHc93IaEr3wXSwr5SC7T6RMLXC_C2QT7bp6FRIL5wyupgLMt5WPzD6iWl7-lf3hX?type=png)](https://mermaid.live/edit#pako:eNqVVv1O2zAQf5UoSAwYrTRAEwoIqXwNxLoitdsfLBNyk0trNXEi29lEGWhPswfbk-wc2_lqomn5x_b97nx3vq88u0Eaguu5QUyEuKRkwUniM58VZ-dyOsoy59lnDn7BknASSOCec2G3PnupuEuqlXhLQ2CSyifPuTU7A4gM4lh4zgPJ58BnZI5HMJgkMfIieD7jAGOSveaCrmHr6Ohk6_DgJH_3_tVwAo_IkudsIdDsEDznqkkwbERKTucS8MqR3RrDrenWvNJyRhK8b4rcbFHZvKbqkqneGHLG0wiEoCnznPty37rfiNjrT0-B5cnZmT6N8GXXensVR8D09obE-CqNY8pXRutNiiBfqQCo4xiYCJaWdVKyPfwAvoBGkIwl50RAZY3khEprjnJ9Z9fZfiMkkTTYxkcX0iiKFZIf64NY4YEeO_q0bpwWomA0J6CLwkISSWCPSRrubAv0bb8J2PDkGJ9dLfg95RJoDHWZrjw07EEqpDHQPL91u4qM9XozwiR7VBd4Tn54oCkZhyBlIZUoh4H_AsGrMnF0f4F8JgsxLQJK4j44ooulRBUaviNJhq4GS0ZXhqFMd4WXDs0KqmFZF1WClgYrz9FII6aV0jJ_N31ppXRNvG5U_-vEQGUtXDpYs6fMVJkowKL2HiOykilX4iXtuiBZ1jzCy7GQN7xQ9_UUCTO9Y_xZr3cf9Xr7Sa8XN3q9vtbrhyvDNzHrXbMO2rb1qNXLudGhl8vutqcjU4ZgjiXmtVFVd7Zz9LxDl0S3cX9-_f6XZDOetqadsqD_I2zY6OZ4x1cbpxPn8FtDfdP_zQwKQQScZrJolY081HNmbzCoTxaflV15MNhrIrafKqAaLT4rWqkzHP48qzc6nxV9tYNeNtkeTHXcLsi23w7M9uIOaNJ9m-7SHUDpJ76MGRIVwYyKilAbGE2iHhs1WjU8KmI1QirapCVox4nPau10OGyFoGpGCqqPxEajaYMme9rkdnW1ca2w6BsKqqtA0zeKfJPH31SiS06xtoAe3mZ-Ngq9z4YO7pYnHRzuvpsATwgN8Y-tKDPflUtIwHc93IaEr3wXSwr5SC7T6RMLXC_C2QT7bp6FRIL5wyupgLMt5WPzD6iWl7-lf3hX)
+
+```mermaid
+classDiagram
+
+class DSApp {
+    character: Character
+}
+
+class Character {
+    +identity: Identity
+    +spells: ZauberTabelle
+    +talents: BTreeMap~usize#44;#32;u16~
+    +erfahrungsgrade: Erfahrungsgrade
+    +attribtes: Attribtes
+}
+
+
+class Identity {
+    +name: String
+    +spezies: Spezies
+    +profession: Profession
+}
+
+
+class Spezies {
+    <<enum>>
+    Achaz
+    Elfen
+    Halbelfen
+    Halborks
+    Holberker
+    Menschen
+    Orks
+    Zwerge
+}
+
+class SpeziesBase {
+    <<trait>>
+    name() &'static&#32str
+    le() u8
+    sk() i8 
+    zk() i8 
+    gs() u8 
+    eigenschaften_mod(&self, eigenschaften: Attributes)
+    vorteile_mod(&self, character: Character)
+    cost() u8
+}
+
+
+
+class Profession {
+    name: String
+    ap_cost: u32
+    preconditions: Vec~AttrAPCost~
+    specials: Vec~AttrAPCost~
+    fighting: Vec~Kampftechnik~
+    talents: Vec~CharacterTalent~
+    zaubertrick: Talent
+}
+
+class AttrAPCost {
+    +ap_cost: u32
+    +name: String
+}
+
+class Kampftechnik {
+    name: String
+    leiteigenschaft: AttrType
+    steigerungs_faktor: SteigerungsFaktor
+    stufe: u16
+}
+
+class AttrType {
+    <<enum>>
+    Any
+    MU
+    KL
+    IN
+    CH
+    FF
+    GE
+    KO
+    KK
+}
+
+class SteigerungsFaktor {
+    <<enum>>
+    A
+    B
+    C
+    D
+}
+
+class CharacterTalent {
+    +base: CharacterTalentBases
+    +stufe: u16
+}
+
+class CharacterTalentBases {
+    <<enum>>
+    …
+}
+
+class CharacterTalentBase {
+    name: &'static str
+    steigerungs_faktor: SteigerungsFaktor
+    probe: [AttrType; 3]
+}
+
+class Talent {
+    name: String
+    description: String
+}
+
+DSApp *-- Character
+
+Identity --* Character
+
+Spezies --* Identity
+
+Achaz ..|> SpeziesBase
+Elfen ..|> SpeziesBase
+Halbelfen ..|> SpeziesBase
+Halborks ..|> SpeziesBase
+Holberker ..|> SpeziesBase
+Menschen ..|> SpeziesBase
+Orks ..|> SpeziesBase
+Zwerge ..|> SpeziesBase
+
+Spezies*--Achaz
+Spezies*--Elfen
+Spezies*--Halbelfen
+Spezies*--Halborks
+Spezies*--Holberker
+Spezies*--Menschen
+Spezies*--Orks
+Spezies*--Zwerge
+
+Profession ..* Identity
+
+AttrAPCost ..* Profession
+Kampftechnik ..* Profession
+Talent ..* Profession
+CharacterTalent ..* Profession
+
+AttrType ..* Kampftechnik
+SteigerungsFaktor ..* Kampftechnik
+
+
+CharacterTalentBases ..* CharacterTalent
+
+CharacterTalentBase --* CharacterTalentBases
+
+SteigerungsFaktor ..* CharacterTalentBase
+AttrType ..* CharacterTalentBase
+```
 
 ## Implementierung
 
