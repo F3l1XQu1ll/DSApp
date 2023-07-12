@@ -65,6 +65,7 @@ Beispiel DSA5 Chartaktersheet:
 
 ```mermaid
 classDiagram
+direction RL
 
 class DSApp {
     character: Character
@@ -75,9 +76,20 @@ class Character {
     +spells: ZauberTabelle
     +talents: BTreeMap~usize#44;#32;u16~
     +erfahrungsgrade: Erfahrungsgrade
-    +attribtes: Attribtes
+    +attributes: Attributes
 }
 
+class Attributes {
+    +mu: u8
+    +kl: u8,
+    +in: u8,
+    +ch: u8,
+    +ff: u8,
+    +ge: u8,
+    +ko: u8,
+    +kk: u8,
+    +attr_mut(&mut self, attr: &AttrType): &mut u8
+}
 
 class Identity {
     +name: String
@@ -145,6 +157,7 @@ class AttrType {
     GE
     KO
     KK
+    +to_string_long(&self): String
 }
 
 class SteigerungsFaktor {
@@ -153,6 +166,7 @@ class SteigerungsFaktor {
     B
     C
     D
+    +cost(&self, rank: u16, profession: bool): u32
 }
 
 class CharacterTalent {
@@ -166,21 +180,72 @@ class CharacterTalentBases {
 }
 
 class CharacterTalentBase {
-    name: &'static str
-    steigerungs_faktor: SteigerungsFaktor
-    probe: [AttrType; 3]
+    +name: &'static str
+    +steigerungs_faktor: SteigerungsFaktor
+    +probe: [AttrType; 3]
+    +probe(&self): &[AttrType; 3]
 }
 
 class Talent {
-    name: String
-    description: String
+    +name: String
+    +description: String
 }
 
-DSApp *-- Character
+class ZauberTabelle {
+    +enabled_spells: BTreeMap~usize#44;&#32ZauberDescriptor~
+    +search: String
+    +show_selector: bool
+}
+
+class ZauberDescriptor {
+    +level: u8
+    +enabeld_extensions: BTreeSet~usize~
+}
+
+class Erfahrungsgrade {
+    <<enum>>
+    UNERFAHREN
+    DURCHSCHNITTLICH
+    ERFAHREN
+    KOMPETENT
+    MEISTERLICH
+    BRILLIANT
+    LEGENDAER
+    +erfahrungsgrad(&self): &'static Erfahrungsgrad
+}
+
+class Erfahrungsgrad {
+    +name: &'static str
+    +ap_konto: u16
+    +eigenschaft_max: u8
+    +fertigkeit_max: u8
+    +Kampftechnik_max: u8
+    +eigenschaftspunkte_max: u8
+    +zauber_max: u8
+    +fremdzauber: u8
+}
+
+class BuildUi {
+    <<trait>>
+    ui(&mut self, ui: &mut egui::Ui)
+}
+
+Character --* DSApp 
+Character ..|> BuildUi
 
 Identity --* Character
+Attributes --* Character
+ZauberTabelle --* Character
+Erfahrungsgrade --* Character
+Erfahrungsgrade ..|> BuildUi
+
+
+Erfahrungsgrad --* Erfahrungsgrade
+
+ZauberDescriptor --* ZauberTabelle
 
 Spezies --* Identity
+Spezies ..|> BuildUi
 
 Achaz ..|> SpeziesBase
 Elfen ..|> SpeziesBase
@@ -201,12 +266,14 @@ Spezies*--Orks
 Spezies*--Zwerge
 
 Profession ..* Identity
+Profession ..|> BuildUi
 
 AttrAPCost ..* Profession
 Kampftechnik ..* Profession
 Talent ..* Profession
 CharacterTalent ..* Profession
 
+AttrType ..* Attributes
 AttrType ..* Kampftechnik
 SteigerungsFaktor ..* Kampftechnik
 
