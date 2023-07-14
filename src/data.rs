@@ -158,6 +158,7 @@ pub struct Talent {
 }
 
 //---------------------- Archetypen ----------------------
+// kann weg
 #[derive(Default, serde::Deserialize, serde::Serialize, PartialEq, Eq, Clone)]
 pub enum Archetype {
     #[default]
@@ -166,6 +167,7 @@ pub enum Archetype {
 }
 
 //---------------------- Ausrüstung ----------------------
+// eigner Ordner
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Equipment {
@@ -175,6 +177,7 @@ pub struct Equipment {
 }
 
 //---------------------- Tiere ----------------------
+//eigener Ordner
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Animal {
@@ -323,6 +326,7 @@ pub struct SpeciesBaseAttributes {
 }
 
 //---------------------- Spezies ----------------------
+// kann weg wenn impl weg
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone, PartialEq, Eq)]
 pub enum Species {
     Achaz,
@@ -463,6 +467,7 @@ impl CharakterTalentBase {
 }
 
 //---------------------- Professionen ----------------------
+// alt
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 #[serde(default)]
 pub struct Profession {

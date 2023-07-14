@@ -1,5 +1,5 @@
 use crate::{
-    data::{Kampftechnik, Liturgy, Talent, Zauber},
+    data::{CharakterTalentBase, Kampftechnik, Liturgy, Talent, Zauber},
     spezies::Spezies,
     vorteile::Vorteil,
 };
@@ -8,29 +8,23 @@ use crate::{
 pub enum Voraussetzung {
     Spezies(Spezies),
     Kultur(),
-    Vorteil(Vorteil),
+    Vorteil(dyn Vorteil),
     Nachteil(Vorteil),
     Sonderfertigkeit(),
 }
-
-//Vor-/Nachteile allg implementieren
-//pub enum Vorteile {
-//    Vorteil,
-//    Nachteil,
-//}
 
 pub struct Sonderfertigkeit {}
 
 // Un-/Geeignete Vor-/nachteile einfügen
 pub struct Profession {
-    name: String,
+    name: &'static str,
     ap: u16,
     voraussetzung: Vec<Voraussetzung>,
     sonderfertigkeiten: Vec<Sonderfertigkeit>,
-    kampftechniken: Vec<Kampftechnik>,
-    talente: Vec<Talent>,
-    zauber: Vec<Zauber>,
-    liturgien: Vec<Liturgy>,
+    kampftechniken: Vec<(Kampftechnik, u8)>,
+    talente: Vec<(CharakterTalentBase, u8)>,
+    zauber: Vec<(Zauber, u8)>,
+    liturgien: Vec<(Liturgy, u8)>,
     e_vorteile: Vec<Vorteil>,
     e_nachteile: Vec<Vorteil>,
     u_vorteile: Vec<Vorteil>,
@@ -55,9 +49,9 @@ macro_rules! profession {
     $u_nachteile: expr,
     $varianten: expr) => {
 
-        impl Profession {
-            pub fn $name_ident() -> Profession {
-                Profession {
+        impl crate::profession::profession::Profession {
+            pub fn $name_ident() -> crate::profession::profession::Profession {
+                crate::profession::profession::Profession {
                     name: $name,
                     ap: $ap,
                     voraussetzung: $voraussetzung,
@@ -80,7 +74,8 @@ macro_rules! profession {
 #[macro_export]
 macro_rules! crate_prof {
     () => {
-        use crate::data::CharakterTalent;
+        use crate::character_talents::*;
+        use crate::data::CharakterTalentBase;
         use crate::spezies::Spezies;
         use crate::vorteile::nachteile::{
             AngstvorIBisIII, ArmIBisIII, Artefaktgebunden, Behaebig, Blind, Blutrausch,

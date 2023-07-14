@@ -1,5 +1,5 @@
-mod nachteile;
-mod vorteile;
+pub mod nachteile;
+pub mod vorteile;
 
 pub trait Vorteil {
     fn name() -> &'static str;

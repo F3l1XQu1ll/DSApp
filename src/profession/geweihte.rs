@@ -1,5 +1,6 @@
 use crate::crate_prof;
 use crate::profession;
+use crate::profession::profession::Voraussetzung;
 
 crate_prof!();
 
@@ -10,18 +11,17 @@ profession!(
     322,
     vec![
         Spezies::Achaz,
-        Kultur::Stammesachaz,
-        Vorteil::Geweihter(25AP),
-        Nachteil::PrinzipientreueI,  /*(Stammesregeln)(-10AP)*/
-        Nachteil::VerpflichtungenII, /*(Stamm)(-20AP)*/
+        Voraussetzung::Kultur(Stammesachaz),
+        Voraussetzung::Vorteil(Geweihter),
+        Voraussetzung::Nachteil(PrinzipientreueIBisIII { stufe: 1 }), /*(Stammesregeln)(-10AP)*/
+        Nachteil::VerpflichtungenII,                                  /*(Stamm)(-20AP)*/
         Sonderfertigkeit::Tradition(Achazschamanen)(135AP),
     ],
     vec![SprachenSchriften4],
     vec![Hiebwaffen11, Raufen10],
     vec![
-        Koerperbeherrschung,
-        4,
-        Kraftakt4,
+        {base: KOERPERBEHERRSCHUNG, stufe: 4},
+        (KRAFTAKT,4),
         Selbstbeherrschung4,
         Sinnesschaerfe4,
         BekehrenundUeberzeugen2,
