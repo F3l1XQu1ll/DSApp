@@ -17,49 +17,54 @@ Beispiel DSA5 Chartaktersheet:
 
 
 ## To Do's:
+### Phasen:
+1. Phase: Bis Klausur
+2. Phase: Einbindung der DSA Standarttypen 
+3. Phase: Homebrew und mehr
+
 ### Projekt:
 | Status | ToDo | notes |
 |---|---|---|
-| in progress | Einarbeiten | Julian |
+| done | Einarbeiten | Julian |
 | in progress | Dokumentation | | 
-| not | Issues | |
+| inprogress | Issues | |
 | in progress | time table | zur Abgabe fertig; Länge |
 
 
 ### Erstellen eines Charakters
-| Status | ToDo | notes |
-|---|---|---|
-| in progress | Persönlichkeitsdaten | Familie|
-| done | Erfahungsgrad / Abenteuerpunkte(AP) | check data|
-| in progress | Spezies / Kultur | Boni/Mali|
-| in progress | Professionen | Standarts einfügen |
-| not | Sprachen / Schriften |
-| done | Leiteigenschaften | check data |
-| not | Vorteile / Nachteile |
-| not | Sonderfertigkeiten | in Profession angefangen :(|
-| in progress | Grundwerte (LE, AsP, KP, SK, ZK, As) | Wert ausrechenen, Zukauf ermöglichen|
-| done | Talente | Untertalente; check data |
-| not | Kampftechniken |
-| not | Ausrüstung / Geld |
-| not | Tragekraft |
-| not | Tiere / Begleiter|
-| not | Un-/Geeignete Vor-/Nachteile| Profession/Spezies/Kultur|
-| not | Homebrew | done: professionen | 
+| Status | ToDo | notes | phase|
+|---|---|---|---|
+| in progress | Persönlichkeitsdaten | Familie| 1 |
+| done | Erfahungsgrad / Abenteuerpunkte(AP) | check data| 1 |
+| in progress | Spezies / Kultur | Boni/Mali(kann später)| 1 |
+| in progress | Professionen | Standarts einfügen | 1 |
+| not | Sprachen / Schriften || 1 |
+| done | Leiteigenschaften | check data | 1 |
+| not | Vorteile / Nachteile || 1 |
+| not | Sonderfertigkeiten | in Profession angefangen :(| 1 |
+| in progress | Grundwerte (LE, AsP, KP, SK, ZK, As) | Wert ausrechenen, Zukauf ermöglichen| 1 |
+| done | Talente | Untertalente; check data | 1 |
+| not | Kampftechniken | | 1 |
+| not | Ausrüstung / Geld || 2 |
+| not | Tragekraft || 2 |
+| not | Tiere / Begleiter|| 2|
+| not | Un-/Geeignete Vor-/Nachteile| Profession/Spezies/Kultur| 2 |
+| not | Homebrew | done: professionen | 2 |
 ### Dynamisches Nutzen des Charakters
-| Status | ToDo |
-|---|---|
-| not | Statuseffekte |
-| in progress | Speichern von Char |
-| not | Speichern von Homebrew |
-| not | würfeln |
-### weiters
-| Status | ToDo | notes |
+| Status | ToDo | phase|
 |---|---|---|
-| not | GUI | chapter|
-| not | Programm | |
-| not | Zonen Rüstung | |
-| not | Verweis zu Ulisses-Wiki| |
-| not | einheitliche Benennung| |
+| not | Statuseffekte | 2 | 
+| in progress | Speichern von Char | 2 |
+| not | Speichern von Homebrew | 3 |
+| not | würfeln | 1 |
+### weiters
+| Status | ToDo | notes | phase |
+|---|---|---|---|
+| not | GUI | chapter| 1/2 |
+| not | Programm | | 3 |
+| not | Zonen Rüstung | | 3 |
+| not | Verweis zu Ulisses-Wiki| | 2 |
+| not | einheitliche Benennung| | 1-3|
 
 ## Projekt UML (Ausschnitt)
 
