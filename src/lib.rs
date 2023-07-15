@@ -11,6 +11,8 @@ mod display;
 mod erfahrungsgrade;
 mod liturgy;
 mod math;
+#[macro_use]
+mod properties;
 mod spells;
 mod spells_index;
 mod spezies;
