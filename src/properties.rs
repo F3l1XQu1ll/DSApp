@@ -172,13 +172,10 @@ impl Operation {
             }
             Operation::Gt(p, q, r, s) => {
                 if p.eval(store).unwrap() > q.eval(store).unwrap() {
-                    log::info!("p > q");
                     r.eval(store)
                 } else if let Some(s) = s {
-                    log::info!("p < q");
                     s.eval(store)
                 } else {
-                    log::info!("p !< q (something wrong)");
                     None
                 }
             }
