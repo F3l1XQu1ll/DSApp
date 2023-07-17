@@ -138,6 +138,14 @@ impl DSApp {
     /// Only called at startup from `main()` (found in `bin/`)
     /// Loads state from local storage.
     pub fn new(cc: &eframe::CreationContext<'_>) -> Self {
+        // Schriften konfigurieren
+        let mut style = (*cc.egui_ctx.style()).clone();
+        style
+            .text_styles
+            .values_mut()
+            .for_each(|text_style| text_style.size *= 1.25);
+        cc.egui_ctx.set_style(style);
+
         let mut instance: Self = if let Some(storage) = cc.storage {
             eframe::get_value(storage, eframe::APP_KEY).unwrap_or_default()
         } else {
