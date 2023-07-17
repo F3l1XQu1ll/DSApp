@@ -9,6 +9,7 @@ use crate::{
     sub,
     talent::talent_ui,
     text_edit,
+    views::View,
 };
 
 /// Contains all state that belongs to the character sheet.
@@ -137,11 +138,13 @@ impl DSApp {
     /// Only called at startup from `main()` (found in `bin/`)
     /// Loads state from local storage.
     pub fn new(cc: &eframe::CreationContext<'_>) -> Self {
-        if let Some(storage) = cc.storage {
-            return eframe::get_value(storage, eframe::APP_KEY).unwrap_or_default();
-        }
-
-        Default::default()
+        let mut instance: Self = if let Some(storage) = cc.storage {
+            eframe::get_value(storage, eframe::APP_KEY).unwrap_or_default()
+        } else {
+            Default::default()
+        };
+        crate::properties::strings::register(&mut instance.store);
+        instance
     }
 }
 
@@ -408,6 +411,9 @@ impl eframe::App for DSApp {
             ));
 
             // let op = op!(["/character/attribute/mu"] + 2.0);
+
+            // Neues Sheet
+            crate::views::character::Character::view(store, ui);
         });
 
         // Ab hier nur viel altes Zeug, muss noch aktualisiert und neu eingefügt werden

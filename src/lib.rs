@@ -18,6 +18,7 @@ mod spells_index;
 mod spezies;
 mod talent;
 mod talents_view;
+mod views;
 mod vorteile;
 mod widgets;
 pub use app::DSApp;

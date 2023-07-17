@@ -1,6 +1,9 @@
 use std::{borrow::Cow, collections::BTreeMap};
 
-type StoreKey = Cow<'static, str>;
+pub mod character;
+pub mod strings;
+
+pub type StoreKey = Cow<'static, str>;
 
 #[derive(PartialEq, PartialOrd, Clone, serde::Deserialize, serde::Serialize)]
 pub enum Value {
@@ -43,6 +46,14 @@ impl Value {
         }
     }
 
+    pub fn str(self) -> Cow<'static, str> {
+        self.to_str().unwrap()
+    }
+
+    pub fn val(self) -> f64 {
+        self.to_val().unwrap()
+    }
+
     pub fn to_str_mut(&mut self) -> Option<&mut String> {
         if let Value::Str(string) = self {
             Some(string.to_mut())
@@ -57,6 +68,14 @@ impl Value {
         } else {
             None
         }
+    }
+
+    pub fn str_mut(&mut self) -> &mut String {
+        self.to_str_mut().unwrap()
+    }
+
+    pub fn val_mut(&mut self) -> &mut f64 {
+        self.to_val_mut().unwrap()
     }
 }
 
@@ -199,11 +218,25 @@ pub struct PropertiesManager {
 }
 
 impl PropertiesManager {
-    pub fn add_prop(&mut self, key: StoreKey, prop: Value) {
-        self.properties.insert(key, prop);
+    pub fn add_prop(&mut self, key: impl Into<StoreKey>, prop: impl Into<Value>) {
+        self.properties.insert(key.into(), prop.into());
     }
 
     pub fn add_op(&mut self, key: StoreKey, op: Operation) {
         self.operations.insert(key, op);
+    }
+
+    pub fn handle(&mut self, key: impl Into<StoreKey>, default: impl Into<Value>) -> &mut Value {
+        self.properties.entry(key.into()).or_insert(default.into())
+    }
+
+    pub fn children_mut(
+        &mut self,
+        key: impl Into<StoreKey>,
+    ) -> impl Iterator<Item = (&StoreKey, &mut Value)> {
+        let key: StoreKey = key.into();
+        self.properties
+            .range_mut(key.clone()..)
+            .take_while(move |(k, _)| k.starts_with(key.as_ref()))
     }
 }
