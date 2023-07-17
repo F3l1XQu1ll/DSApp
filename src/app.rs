@@ -6,6 +6,7 @@ use crate::{
     drag_val, get, gt, ld, mul,
     properties::{Check, Operation, Value},
     spezies::SpeziesBase,
+    sprachen_schriften::{Schrift, Sprache, SprachenSchriften},
     sub,
     talent::talent_ui,
     text_edit,
@@ -93,6 +94,8 @@ pub struct DSApp {
     kreuzer: u16,
     #[deprecated]
     animal: Animal,
+    #[deprecated]
+    sprachenschriften: SprachenSchriften,
 
     // Properties und Operationen
     store: crate::properties::PropertiesManager,
@@ -210,6 +213,7 @@ impl eframe::App for DSApp {
             animal,
             character,
             store,
+            sprachenschriften,
         } = self;
         let Attributes {
             mu,
@@ -292,7 +296,7 @@ impl eframe::App for DSApp {
 
                 // Initiative, Seelenkraft, Zähigkeit
                 ui.group(|ui| {
-                    ui.vertical(|ui| {
+                    ui.vertical(|ui: &mut egui::Ui| {
                         ui.strong("Ini");
                         let initiative_base = (*mu + *ge) / 2;
                         ui.strong(format!("{initiative_base}"));
@@ -311,6 +315,12 @@ impl eframe::App for DSApp {
                             character.identity.species.zk() as i16 + ((*ko + *ko + *kk) / 6) as i16;
                         ui.strong(format!("{zk_base}"));
                     });
+                });
+
+                // Sprachen, Schriften
+                ui.group(|ui| {
+                    sprachenschriften.ui(ui);
+                    //ui.button("Sprache und Schrift").clicked()
                 });
             });
 

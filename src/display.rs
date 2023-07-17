@@ -5,6 +5,8 @@ use crate::data::{
     SteigerungsFaktor, ZauberDescriptor, ZauberTable,
 };
 
+use crate::sprachen_schriften::{Schrift, Sprache, SprachenSchriften, Stufe};
+
 use crate::spezies::prelude::*;
 
 use crate::character_talents::CharakterTalentBases;
@@ -35,7 +37,7 @@ macro_rules! impl_identified {
     }
 }
 
-impl_identified!(AttrAPCost, Kampftechnik);
+impl_identified!(AttrAPCost, Kampftechnik, Schrift, Sprache);
 
 impl Identified for CharakterTalent {
     fn identified(&self) -> bool {
@@ -387,6 +389,61 @@ impl BuildUi for Profession {
         ui.horizontal(|ui| {
             text_edit!(ui, &mut self.name);
             if ui.button("Anpassen").clicked() {
+                self.show_editor = !self.show_editor;
+            }
+        });
+    }
+}
+
+// impl BuildUi for Sprachne und Schriften
+impl BuildUi for SprachenSchriften {
+    fn ui(&mut self, ui: &mut egui::Ui) {
+        egui::Window::new("Profession Anpassen")
+            .open(&mut self.show_editor)
+            .show(ui.ctx(), |ui| {
+                egui::ScrollArea::vertical()
+                    .auto_shrink([false, true])
+                    .stick_to_bottom(true)
+                    .show(ui, |ui| {
+                        ui.vertical(|ui| {
+                            collapsing_list(
+                                ui,
+                                "Sprachen",
+                                "sprache-add-grid",
+                                &mut self.sprachen,
+                                |ui, _, p| {
+                                    text_edit!(ui, &mut p.name, 180.0);
+                                    ui.label("");
+                                    //ui.label("Stufe");
+                                    //egui::ComboBox::from_id_source("species")
+                                    //    .selected_text(self.name())
+                                    //    .show_ui(ui, |ui| {
+                                    //        ui.selectable_value(self, Stufe::I, "I");
+                                    //    });
+                                    //oder
+                                    //text_edit!(ui, &mut p.level, 180.0);
+                                    drag_val!(ui, "AP", &mut p.cost);
+                                    ui.end_row();
+                                },
+                            );
+                            collapsing_list(
+                                ui,
+                                "Schriften",
+                                "sprache-add-grid",
+                                &mut self.schriften,
+                                |ui, _, p| {
+                                    //ui.label("Sprache");
+                                    text_edit!(ui, &mut p.name, 180.0);
+                                    ui.label("");
+                                    drag_val!(ui, "AP", &mut p.cost);
+                                    ui.end_row();
+                                },
+                            );
+                        });
+                    });
+            });
+        ui.horizontal(|ui| {
+            if ui.button("Sprachen und Schriften").clicked() {
                 self.show_editor = !self.show_editor;
             }
         });

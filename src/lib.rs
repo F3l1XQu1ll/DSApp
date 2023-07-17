@@ -16,6 +16,7 @@ mod properties;
 mod spells;
 mod spells_index;
 mod spezies;
+mod sprachen_schriften;
 mod talent;
 mod talents_view;
 mod views;
