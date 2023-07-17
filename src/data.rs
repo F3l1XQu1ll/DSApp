@@ -99,12 +99,7 @@ impl ToString for SteigerungsFaktor {
 
 impl SteigerungsFaktor {
     pub fn cost(&self, rank: u16, profession: bool) -> u32 {
-        let scale = match *self {
-            SteigerungsFaktor::A => 1,
-            SteigerungsFaktor::B => 2,
-            SteigerungsFaktor::C => 3,
-            SteigerungsFaktor::D => 4,
-        };
+        let scale = self.scale();
         let border = if scale < 5 { 12 } else { 14 }; // E scales a little different, not implemented
         if rank <= border {
             if profession {
@@ -121,6 +116,15 @@ impl SteigerungsFaktor {
                 + (1..(rank - 11))
                     .map(|i| i as u32 * scale as u32)
                     .fold(0, |acc, i| acc + i)
+        }
+    }
+
+    pub fn scale(&self) -> u16 {
+        match *self {
+            SteigerungsFaktor::A => 1,
+            SteigerungsFaktor::B => 2,
+            SteigerungsFaktor::C => 3,
+            SteigerungsFaktor::D => 4,
         }
     }
 }
@@ -426,6 +430,19 @@ pub struct Kampftechnik {
     pub stufe: u16,
 }
 
+impl Kampftechnik {
+    pub fn cost(&self) -> u16 {
+        self.steigerungs_faktor.scale() * (self.stufe - 6) // Kosten bis 12 sind Stufe * Faktor
+            + if self.stufe >= 12 { // Ab Stufe 13 ...
+                (1..(self.stufe - 11))  // zuzüglich des Faktors 
+                    .map(|i| i * self.steigerungs_faktor.scale()) // multipliziert mit jeder extra Stufe
+                    .fold(0, |acc, i| acc + i) // welcher pro extra Stufe aufsummiert wird
+            } else {
+                0
+            }
+    }
+}
+
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub struct CharakterTalent {
     pub base: CharakterTalentBases,
@@ -487,6 +504,7 @@ pub struct Character {
     pub talents: std::collections::BTreeMap<usize, u16>,
     pub erfahrungsgrad: Erfahrungsgrade,
     pub attributes: Attributes,
+    pub kampftechniken: std::collections::BTreeMap<std::borrow::Cow<'static, str>, Kampftechnik>,
 }
 
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]

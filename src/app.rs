@@ -387,6 +387,15 @@ impl eframe::App for DSApp {
                 .show(ui);
         });
 
+        // Kampftechniken
+        egui::SidePanel::right("panel-fighting_skills").show(ctx, |ui| {
+            egui::ScrollArea::vertical()
+                .auto_shrink([false, false])
+                .show(ui, |ui| {
+                    crate::kampf::KampfTechnikenView::new(&mut character.kampftechniken).ui(ui);
+                });
+        });
+
         // Derzeit debug für Kosten und Attribut berechnungen
         egui::CentralPanel::default().show(ctx, |ui| {
             ui.label("AP:");

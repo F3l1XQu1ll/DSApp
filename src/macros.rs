@@ -4,6 +4,10 @@ macro_rules! drag_val {
         $ui.strong($label);
         drag_val!($ui, $link)
     };
+    ($ui:expr, $label: expr, $link: expr, min: $min: literal) => {
+        $ui.strong($label);
+        drag_val!($ui, $link, min $min)
+    };
     ($ui:expr, $link: expr) => {
         $ui.horizontal(|ui| {
             if ui
@@ -13,6 +17,23 @@ macro_rules! drag_val {
                 *$link -= 1;
             }
             ui.add(egui::DragValue::new($link).clamp_range(0..=1000));
+            if ui
+                .add_enabled(*$link < crate::math::MinMax::MAX, egui::Button::new("+"))
+                .clicked()
+            {
+                *$link += 1;
+            }
+        });
+    };
+    ($ui:expr, $link: expr, min $min: literal) => {
+        $ui.horizontal(|ui| {
+            if ui
+                .add_enabled(*$link > $min, egui::Button::new("–"))
+                .clicked()
+            {
+                *$link -= 1;
+            }
+            ui.add(egui::DragValue::new($link).clamp_range($min..=1000));
             if ui
                 .add_enabled(*$link < crate::math::MinMax::MAX, egui::Button::new("+"))
                 .clicked()
