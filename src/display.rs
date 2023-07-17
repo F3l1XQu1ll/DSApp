@@ -107,6 +107,10 @@ impl BuildUi for Character {
                         text_edit!(ui, &mut self.identity.weight, 180.0);
                         ui.end_row();
 
+                        ui.label("Familie");
+                        text_edit!(ui, &mut self.identity.family, 180.0);
+                        ui.end_row();
+
                         ui.label("Charakteristika");
                         egui::ScrollArea::vertical().show(ui, |ui| {
                             // text_edit!(ui, &mut self.identity.characteristical, 180.0);
