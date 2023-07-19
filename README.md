@@ -18,7 +18,7 @@ Beispiel DSA5 Chartaktersheet:
 
 ## To Do's:
 ### Phasen:
-1. Phase: Bis Klausur
+1. Phase: Bis Klausur (Milestone: Projektabgabe)
 2. Phase: Einbindung der DSA Standarttypen 
 3. Phase: Homebrew und mehr
 
