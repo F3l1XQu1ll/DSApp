@@ -103,9 +103,9 @@ impl SteigerungsFaktor {
         let border = if scale < 5 { 12 } else { 14 }; // E scales a little different, not implemented
         if rank <= border {
             if profession {
-                (rank * scale).into()
+                ((rank - 1) * scale).into()
             } else {
-                (scale + rank * scale).into()
+                (scale + (rank - 1) * scale).into()
             }
         } else {
             // up to level 12
@@ -114,8 +114,8 @@ impl SteigerungsFaktor {
             let start = if !profession { base_cost as u32 } else { 0 };
             start
                 + (1..(rank - 11))
-                    .map(|i| i as u32 * scale as u32)
-                    .fold(0, |acc, i| acc + i)
+                    .map(|i| (i as u32 + 1) * scale as u32)
+                    .fold(0, |acc, i| acc + (i))
         }
     }
 

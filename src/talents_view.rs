@@ -68,10 +68,10 @@ impl<'a> CharacterTalentsView<'a> {
                                     let talent_level = self
                                         .talents
                                         .entry(class_id.talent_index(index))
-                                        .or_insert(1);
+                                        .or_insert(0);
                                     drag_val!(ui, "Level", talent_level);
                                     ui.end_row();
-                                    let cost = if *talent_level > 1 {
+                                    let cost = if *talent_level > 0 {
                                         talent.steigerungs_faktor.cost(*talent_level, false)
                                     } else {
                                         0
