@@ -28,17 +28,17 @@ Beispiel DSA5 Chartaktersheet:
 | done | Einarbeiten | Julian |
 | in progress | Dokumentation | | 
 | inprogress | Issues | |
-| in progress | time table | zur Abgabe fertig; Länge |
+| done | time table | zur Abgabe fertig; Länge |
 
 
 ### Erstellen eines Charakters
 | Status | ToDo | notes | phase|
 |---|---|---|---|
-| in progress | Persönlichkeitsdaten | Familie| 1 |
+| done | Persönlichkeitsdaten | Familie| 1 |
 | done | Erfahungsgrad / Abenteuerpunkte(AP) | check data| 1 |
 | in progress | Spezies / Kultur | Boni/Mali(kann später)| 1 |
 | in progress | Professionen | Standarts einfügen | 1 |
-| not | Sprachen / Schriften || 1 |
+| in progress | Sprachen / Schriften || 1 |
 | done | Leiteigenschaften | check data | 1 |
 | not | Vorteile / Nachteile || 1 |
 | not | Sonderfertigkeiten | in Profession angefangen :(| 1 |
@@ -60,7 +60,7 @@ Beispiel DSA5 Chartaktersheet:
 ### weiters
 | Status | ToDo | notes | phase |
 |---|---|---|---|
-| not | GUI | chapter| 1/2 |
+| in progress | GUI | chapter| 1/2 |
 | not | Programm | | 3 |
 | not | Zonen Rüstung | | 3 |
 | not | Verweis zu Ulisses-Wiki| | 2 |
