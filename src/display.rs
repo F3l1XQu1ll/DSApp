@@ -399,7 +399,7 @@ impl BuildUi for Profession {
 // impl BuildUi for Sprachen und Schriften
 impl BuildUi for SprachenSchriften {
     fn ui(&mut self, ui: &mut egui::Ui) {
-        egui::Window::new("Profession Anpassen")
+        egui::Window::new("Sprachen und Schriften")
             .open(&mut self.show_editor)
             .show(ui.ctx(), |ui| {
                 egui::ScrollArea::vertical()
