@@ -1,3 +1,4 @@
+use log::Level;
 use tracing::debug;
 
 use crate::data::{
@@ -5,7 +6,7 @@ use crate::data::{
     SteigerungsFaktor, ZauberDescriptor, ZauberTable,
 };
 
-use crate::sprachen_schriften::{Schrift, Sprache, SprachenSchriften, Stufe};
+use crate::sprachen_schriften::{Schrift, Sprache, SpracheStufe, SprachenSchriften};
 
 use crate::spezies::prelude::*;
 
@@ -395,7 +396,7 @@ impl BuildUi for Profession {
     }
 }
 
-// impl BuildUi for Sprachne und Schriften
+// impl BuildUi for Sprachen und Schriften
 impl BuildUi for SprachenSchriften {
     fn ui(&mut self, ui: &mut egui::Ui) {
         egui::Window::new("Profession Anpassen")
@@ -406,6 +407,7 @@ impl BuildUi for SprachenSchriften {
                     .stick_to_bottom(true)
                     .show(ui, |ui| {
                         ui.vertical(|ui| {
+                            // Sprachen
                             collapsing_list(
                                 ui,
                                 "Sprachen",
@@ -413,6 +415,8 @@ impl BuildUi for SprachenSchriften {
                                 &mut self.sprachen,
                                 |ui, _, p| {
                                     text_edit!(ui, &mut p.name, 180.0);
+                                    ui.label("");
+                                    p.stufe.ui(ui);
                                     ui.label("");
                                     //ui.label("Stufe");
                                     //egui::ComboBox::from_id_source("species")
@@ -426,6 +430,7 @@ impl BuildUi for SprachenSchriften {
                                     ui.end_row();
                                 },
                             );
+                            // Schriften
                             collapsing_list(
                                 ui,
                                 "Schriften",
@@ -446,6 +451,26 @@ impl BuildUi for SprachenSchriften {
             if ui.button("Sprachen und Schriften").clicked() {
                 self.show_editor = !self.show_editor;
             }
+        });
+    }
+}
+
+impl BuildUi for SpracheStufe {
+    fn ui(&mut self, ui: &mut egui::Ui) {
+        ui.vertical_centered_justified(|ui| {
+            egui::ComboBox::from_id_source("gender")
+                .selected_text(match self {
+                    SpracheStufe::I => "I",
+                    SpracheStufe::II => "II",
+                    SpracheStufe::III => "III",
+                    SpracheStufe::MS => "MS",
+                })
+                .show_ui(ui, |ui| {
+                    ui.selectable_value(self, SpracheStufe::I, "I");
+                    ui.selectable_value(self, SpracheStufe::II, "II");
+                    ui.selectable_value(self, SpracheStufe::III, "III");
+                    ui.selectable_value(self, SpracheStufe::MS, "MS");
+                });
         });
     }
 }
