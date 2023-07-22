@@ -505,6 +505,7 @@ pub struct Character {
     pub erfahrungsgrad: Erfahrungsgrade,
     pub attributes: Attributes,
     pub kampftechniken: std::collections::BTreeMap<std::borrow::Cow<'static, str>, Kampftechnik>,
+    pub apmods: crate::apmods::VorteileView,
 }
 
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
@@ -734,4 +735,13 @@ pub struct Erfahrungsgrad {
     pub eingenschaftspunkte_max: u8,
     pub zauber_max: u8,
     pub fremdzauber: u8,
+}
+
+#[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
+#[serde(default)]
+pub struct Vorteil {
+    pub name: String,
+    pub beschreibung: String,
+    pub stufe: u8,
+    pub ap: u16,
 }

@@ -4,6 +4,7 @@ mod app;
 mod kampf;
 #[macro_use]
 mod macros;
+mod apmods;
 mod character_talents;
 mod cost;
 mod data;

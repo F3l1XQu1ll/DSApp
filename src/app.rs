@@ -322,6 +322,11 @@ impl eframe::App for DSApp {
                     sprachenschriften.ui(ui);
                     //ui.button("Sprache und Schrift").clicked()
                 });
+
+                // Vorteile, Nachteile
+                ui.group(|ui| {
+                    character.apmods.window_ui(ui);
+                });
             });
 
             // Attributes
