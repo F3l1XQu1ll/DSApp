@@ -84,7 +84,7 @@ impl BuildUi for Character {
                         ui.end_row();
 
                         ui.label("Heimatort");
-                        text_edit!(ui, &mut self.identity.family);
+                        text_edit!(ui, &mut self.identity.hometown);
                     });
                 });
                 ui.separator();
