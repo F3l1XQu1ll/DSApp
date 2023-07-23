@@ -18,6 +18,8 @@ tracing = "0.1.37"
 wasm-bindgen-futures = "0.4.36"
 log = "0.4.18"
 wgpu = { version = "0.16.1", features = ["webgl"] }
+getrandom = { version = "0.2", features = ["js"] }
+rand = "0.8"
 
 [profile.release]
 opt-level = 2
