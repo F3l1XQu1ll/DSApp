@@ -39,7 +39,7 @@ jobs:
       
       # compile to wasm
       - name: trunk build
-        run: ./trunk build -d _site --release
+        run: ./trunk build -d _site --release --public-url /DSApp
 
       # Pages Fixes
       - name: Fix permissions
