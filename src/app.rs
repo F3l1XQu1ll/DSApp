@@ -3,14 +3,11 @@ use std::{borrow::Cow, rc::Rc};
 use crate::{
     data::{Animal, Archetype, Attributes, Character, Equipment, KaP, Liturgy, Talent},
     display::BuildUi,
-    drag_val, get, gt, ld, mul,
-    properties::{Check, Operation, Value},
+    drag_val,
     spezies::SpeziesBase,
     sprachen_schriften::{Schrift, Sprache, SprachenSchriften},
-    sub,
     talent::talent_ui,
     text_edit,
-    views::View,
 };
 
 /// Contains all state that belongs to the character sheet.
@@ -96,9 +93,8 @@ pub struct DSApp {
     animal: Animal,
     #[deprecated]
     sprachenschriften: SprachenSchriften,
-
     // Properties und Operationen
-    store: crate::properties::PropertiesManager,
+    // store: crate::properties::PropertiesManager,
 }
 
 // impl Default for DSApp {
@@ -154,7 +150,6 @@ impl DSApp {
         } else {
             Default::default()
         };
-        crate::properties::strings::register(&mut instance.store);
         instance
     }
 }
@@ -212,7 +207,6 @@ impl eframe::App for DSApp {
             kreuzer,
             animal,
             character,
-            store,
             sprachenschriften,
         } = self;
         let Attributes {
