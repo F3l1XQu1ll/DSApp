@@ -2,11 +2,13 @@ use std::{borrow::Cow, collections::BTreeMap};
 
 use egui::{Grid, Id, RichText};
 
+use rand::prelude::*;
+
 use crate::{
     data::{AttrType, Kampftechnik, SteigerungsFaktor as StF},
     display::BuildUiNamed,
-    drag_val,
-    roll::{self, ShowRollEditor},
+    drag_val, drag_val_mod,
+    roll::{self, Krit, ShowRollEditor},
 };
 
 pub struct KampfTechnikenView<'a> {
@@ -168,14 +170,166 @@ impl<'a> KampfTechnikenView<'a> {
     pub fn ui_win(&mut self, ui: &mut egui::Ui) {
         for (name, skill) in &mut *self.kampftechniken {
             egui::Window::new("Kampfwurf")
-                .open(&mut { skill.roll.show_editor == ShowRollEditor::Roll })
+                .open(&mut skill.roll.show_editor)
                 .id(skill.id.clone().into())
                 .show(ui.ctx(), |ui| {
                     ui.group(|ui| {
-                        skill.roll.ui_kampf_mod(ui, skill.id.clone().into());
-                        if ui.button("x").clicked() {
-                            skill.roll.show_editor = ShowRollEditor::None;
-                        }
+                        ui.horizontal(|ui| {
+                            // modifier
+                            ui.vertical(|ui| {
+                                ui.label("Erschwernis / Erleichterung");
+                                drag_val_mod!(ui, &mut skill.roll.mod_roll);
+                            });
+                            // KTW
+                            ui.vertical(|ui| {
+                                ui.label("KTW");
+                                ui.code(skill.stufe.to_string());
+                            });
+                            // Leiteigenschaft
+                            ui.vertical(|ui| {
+                                ui.label("Leiteigenschaft");
+                                ui.code(skill.leiteigenschaft.to_string());
+                            });
+                        });
+
+                        //Wurf
+                        ui.group(|ui| {
+                            ui.horizontal(|ui| {
+                                if ui.button("Würfeln").clicked() {
+                                    skill.roll.rolld20[0] = rand::thread_rng().gen_range(1..21);
+                                    skill.roll.rolld20[1] = rand::thread_rng().gen_range(1..21);
+                                }
+                                ui.code(skill.roll.rolld20[0].to_string());
+                                if skill.roll.rolld20[0] == 1 || skill.roll.rolld20[0] == 20 {
+                                    ui.code(skill.roll.rolld20[1].to_string());
+                                }
+                            });
+                        });
+
+                        //Würfel feld
+                        ui.horizontal(|ui| {
+                            // AT
+                            ui.group(|ui| {
+                                ui.vertical(|ui| {
+                                    ui.label(RichText::new("AT"));
+                                    ui.end_row();
+                                    // Wurf
+                                    ui.vertical(|ui| {
+                                        // Logik AT
+                                        let roll_val: u8 =
+                                            (skill.stufe as i8 + skill.roll.mod_roll) as u8;
+
+                                        // Roll passed
+                                        if skill.roll.rolld20[0] <= roll_val {
+                                            skill.roll.passed = true;
+                                        } else {
+                                            skill.roll.passed = false
+                                        }
+
+                                        //Krit
+                                        if skill.roll.rolld20[0] == 20 || skill.roll.rolld20[0] == 1
+                                        {
+                                            // Kritischer Erfolg
+                                            if skill.roll.rolld20[0] == 1 {
+                                                if skill.roll.rolld20[1] <= roll_val {
+                                                    skill.roll.krit = Krit::KritischerErfolg
+                                                } else {
+                                                    skill.roll.krit = Krit::None;
+                                                }
+                                            }
+                                            // Patzer
+                                            if skill.roll.rolld20[0] == 20 {
+                                                skill.roll.passed = false;
+                                                if skill.roll.rolld20[1] > roll_val {
+                                                    skill.roll.krit = Krit::Patzer;
+                                                } else {
+                                                    skill.roll.krit = Krit::None
+                                                }
+                                            }
+                                        } else {
+                                            // kein Krit
+
+                                            skill.roll.krit = Krit::None
+                                        }
+
+                                        if skill.roll.passed {
+                                            ui.label("wurf bestanden!");
+                                        } else {
+                                            ui.label("wurf fehlgeschlagen!");
+                                        }
+                                        if skill.roll.krit == Krit::Patzer {
+                                            ui.label("Patzer !!!");
+                                        } else {
+                                            if skill.roll.krit == Krit::KritischerErfolg {
+                                                ui.label("Kritischer Erfolg !!!");
+                                            }
+                                        }
+                                    });
+                                });
+                            });
+                            // PA
+                            ui.group(|ui| {
+                                ui.vertical(|ui| {
+                                    ui.label(RichText::new("PA"));
+                                    ui.end_row();
+                                    // Wurf
+                                    ui.vertical(|ui| {
+                                        // Logik AT
+                                        let roll_val: u8 = (skill.stufe as i8 / 2
+                                            + (skill.stufe as i8 % 2)
+                                            + skill.roll.mod_roll)
+                                            as u8;
+                                        // Roll passed
+                                        if skill.roll.rolld20[0] <= roll_val {
+                                            skill.roll.passed = true;
+                                        } else {
+                                            skill.roll.passed = false
+                                        }
+
+                                        //Krit
+                                        if skill.roll.rolld20[0] == 20 || skill.roll.rolld20[0] == 1
+                                        {
+                                            // Kritischer Erfolg
+                                            if skill.roll.rolld20[0] == 1 {
+                                                if skill.roll.rolld20[1] <= roll_val {
+                                                    skill.roll.krit = Krit::KritischerErfolg
+                                                } else {
+                                                    skill.roll.krit = Krit::None;
+                                                }
+                                            }
+                                            // Patzer
+                                            if skill.roll.rolld20[0] == 20 {
+                                                skill.roll.passed = false;
+                                                if skill.roll.rolld20[1] > roll_val {
+                                                    skill.roll.krit = Krit::Patzer;
+                                                } else {
+                                                    skill.roll.krit = Krit::None
+                                                }
+                                            }
+                                        } else {
+                                            // kein Krit
+                                            skill.roll.krit = Krit::None
+                                        }
+
+                                        if skill.roll.passed {
+                                            ui.label("wurf bestanden!");
+                                        } else {
+                                            ui.label("wurf fehlgeschlagen!");
+                                        }
+                                        if skill.roll.krit == Krit::Patzer {
+                                            ui.label("Patzer !!!");
+                                        } else {
+                                            if skill.roll.krit == Krit::KritischerErfolg {
+                                                ui.label("Kritischer Erfolg !!!");
+                                            }
+                                        }
+                                    });
+                                });
+                            });
+                        });
+                        //if ui.button("schließen").clicked() {
+                        //    skill.roll.show_editor = ShowRollEditor::None;
+                        //}
                     });
                 });
         }

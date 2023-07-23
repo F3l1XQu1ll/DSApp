@@ -14,18 +14,18 @@ pub enum ShowRollEditor {
 
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub struct Roll {
-    pub show_editor: ShowRollEditor,
+    pub show_editor: bool,
     pub mod_level: i8,    //modifier for value to balance rolls
     pub mod_roll: i8,     //modifer for value roll again
     pub mod_boni: i8,     //modifier for roll result
-    pub rolld6: Vec<u8>,  //d6s rolled
-    pub rolld20: Vec<u8>, //d20s rolled
+    pub rolld6: [u8; 4],  //d6s rolled
+    pub rolld20: [u8; 4], //d20s rolled
     pub passed: bool,
     pub krit: Krit,
 }
 
 // kritische Würfe
-#[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
+#[derive(Default, serde::Deserialize, serde::Serialize, Clone, PartialEq)]
 pub enum Krit {
     Patzer,
     #[default]
@@ -38,11 +38,11 @@ impl Roll {
     pub fn ui_kampf_button(&mut self, ui: &mut egui::Ui) {
         ui.horizontal(|ui| {
             if ui.button("würfeln").clicked() {
-                self.show_editor = ShowRollEditor::Roll;
+                self.show_editor = !self.show_editor;
             }
         });
     }
-    pub fn ui_kampf_window(&mut self, ui: &mut egui::Ui, skill_name: Id) {
+    /*pub fn ui_kampf_window(&mut self, ui: &mut egui::Ui, skill_name: Id) {
         egui::Window::new("Wurf")
             .open(&mut { self.show_editor == ShowRollEditor::Roll })
             .id(skill_name)
@@ -54,9 +54,9 @@ impl Roll {
                     }
                 });
             });
-    }
+    }*/
 
-    pub fn ui_kampf_mod(&mut self, ui: &mut egui::Ui, skill_name: Id) {
+    /*pub fn ui_kampf_mod(&mut self, ui: &mut egui::Ui, skill_name: Id) {
         egui::Window::new("Modifier")
             .open(&mut { self.show_editor == ShowRollEditor::Modifier })
             .id(skill_name)
@@ -73,5 +73,5 @@ impl Roll {
                 self.show_editor = ShowRollEditor::Modifier;
             }
         });
-    }
+    }*/
 }
