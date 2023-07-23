@@ -427,8 +427,9 @@ pub struct AttrAPCost {
 }
 
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
+#[serde(default)]
 pub struct Kampftechnik {
-    pub id: String,
+    // pub id: String,
     pub name: String,
     pub leiteigenschaft: AttrType,
     pub steigerungs_faktor: SteigerungsFaktor,

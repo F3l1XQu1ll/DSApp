@@ -19,7 +19,7 @@ impl<'a> KampfTechnikenView<'a> {
     pub fn new(kampftechniken: &'a mut BTreeMap<Cow<'static, str>, Kampftechnik>) -> Self {
         let default_skills = [
             Kampftechnik {
-                id: "armbrueste".to_owned(),
+                // id: "armbrueste".to_owned(),
                 name: "Armbrüste".to_owned(),
                 leiteigenschaft: AttrType::FF,
                 steigerungs_faktor: StF::B,
@@ -27,7 +27,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "boegen".to_owned(),
+                // id: "boegen".to_owned(),
                 name: "Bögen".to_owned(),
                 leiteigenschaft: AttrType::FF,
                 steigerungs_faktor: StF::C,
@@ -35,7 +35,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "dolche".to_owned(),
+                // id: "dolche".to_owned(),
                 name: "Dolche".to_owned(),
                 leiteigenschaft: AttrType::GE,
                 steigerungs_faktor: StF::B,
@@ -43,7 +43,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "fechtwaffen".to_owned(),
+                // id: "fechtwaffen".to_owned(),
                 name: "Fechtwaffen".to_owned(),
                 leiteigenschaft: AttrType::GE,
                 steigerungs_faktor: StF::C,
@@ -51,7 +51,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "hiebwaffen".to_owned(),
+                // id: "hiebwaffen".to_owned(),
                 name: "Hiebwaffen".to_owned(),
                 leiteigenschaft: AttrType::KK,
                 steigerungs_faktor: StF::C,
@@ -59,7 +59,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "kettenwaffen".to_owned(),
+                // id: "kettenwaffen".to_owned(),
                 name: "Kettenwaffen".to_owned(),
                 leiteigenschaft: AttrType::KK,
                 steigerungs_faktor: StF::C,
@@ -67,7 +67,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "lanzen".to_owned(),
+                // id: "lanzen".to_owned(),
                 name: "Lanzen".to_owned(),
                 leiteigenschaft: AttrType::KK,
                 steigerungs_faktor: StF::B,
@@ -75,7 +75,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "raufen".to_owned(),
+                // id: "raufen".to_owned(),
                 name: "Raufen".to_owned(),
                 leiteigenschaft: AttrType::GE, // TODO: … oder KK, jeh nach dem was größer ist
                 steigerungs_faktor: StF::B,
@@ -83,7 +83,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "schilde".to_owned(),
+                // id: "schilde".to_owned(),
                 name: "Schilde".to_owned(),
                 leiteigenschaft: AttrType::KK,
                 steigerungs_faktor: StF::C,
@@ -91,7 +91,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "schwerter".to_owned(),
+                // id: "schwerter".to_owned(),
                 name: "Schwerter".to_owned(),
                 leiteigenschaft: AttrType::GE, // TODO: oder KK
                 steigerungs_faktor: StF::C,
@@ -99,7 +99,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "stangenwaffen".to_owned(),
+                // id: "stangenwaffen".to_owned(),
                 name: "Stangenwaffen".to_owned(),
                 leiteigenschaft: AttrType::GE, // TODO: oder KK
                 steigerungs_faktor: StF::C,
@@ -107,7 +107,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "wurfwaffen".to_owned(),
+                // id: "wurfwaffen".to_owned(),
                 name: "Wurfwaffen".to_owned(),
                 leiteigenschaft: AttrType::FF,
                 steigerungs_faktor: StF::B,
@@ -115,7 +115,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "zweihandhiebwaffen".to_owned(),
+                // id: "zweihandhiebwaffen".to_owned(),
                 name: "Zweihandhiebwaffen".to_owned(),
                 leiteigenschaft: AttrType::KK,
                 steigerungs_faktor: StF::C,
@@ -123,7 +123,7 @@ impl<'a> KampfTechnikenView<'a> {
                 ..Default::default()
             },
             Kampftechnik {
-                id: "zweihandschwerter".to_owned(),
+                // id: "zweihandschwerter".to_owned(),
                 name: "Zweihandschwerter".to_owned(),
                 leiteigenschaft: AttrType::KK,
                 steigerungs_faktor: StF::C,
@@ -169,9 +169,9 @@ impl<'a> KampfTechnikenView<'a> {
 
     pub fn ui_win(&mut self, ui: &mut egui::Ui) {
         for (name, skill) in &mut *self.kampftechniken {
-            egui::Window::new("Kampfwurf")
+            egui::Window::new(format!("Kampfwurf ({})", name))
                 .open(&mut skill.roll.show_editor)
-                .id(skill.id.clone().into())
+                // .id(skill.id.clone().into())
                 .show(ui.ctx(), |ui| {
                     ui.group(|ui| {
                         ui.horizontal(|ui| {
