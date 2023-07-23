@@ -24,7 +24,7 @@ impl<'a> Debugger<'a> {
     }
 
     pub fn show(&mut self) {
-        egui::Window::new("Code")
+        egui::Window::new("Daten")
             .constrain(true)
             .show(self.ctx, |ui| {
                 let ron_code =
@@ -32,22 +32,23 @@ impl<'a> Debugger<'a> {
                         .unwrap();
                 ui.vertical(|ui| {
                     ui.horizontal(|ui| {
-                        let mut enable_debug = self.ctx.debug_on_hover();
-                        ui.checkbox(&mut enable_debug, "Debug");
-                        ui.checkbox(&mut self.autoupdate_code, "Auto Update");
-                        self.ctx.set_debug_on_hover(enable_debug);
-                        if ui.button("Reset").clicked() {
-                            ui.ctx().memory_mut(|mem| *mem = Default::default());
+                        ui.checkbox(&mut self.autoupdate_code, "Automatisch\nAktualisieren");
+                        if ui.button("Daten\nAktualisieren").clicked() || *self.autoupdate_code {
+                            *self.data_code = ron_code.clone();
                         }
-                        if ui.button("Kopieren").clicked() {
-                            self.ctx.output_mut(|o| o.copied_text = ron_code.clone());
+                        if ui.button("Daten\nKopieren").clicked() {
+                            self.ctx.output_mut(|o| o.copied_text = ron_code);
                         }
-                        if ui.button("Übernehmen").clicked() {
+                        if ui.button("Änderungen\nÜbernehmen").clicked() {
                             *self.replace_data = true;
                         }
-                        if ui.button("Aktualisieren").clicked() || *self.autoupdate_code {
-                            *self.data_code = ron_code;
+                        if ui.button("Reset\nErfordert Neu Laden!").clicked() {
+                            ui.ctx().memory_mut(|mem| *mem = Default::default());
                         }
+
+                        let mut enable_debug = self.ctx.debug_on_hover();
+                        ui.checkbox(&mut enable_debug, "Debug");
+                        self.ctx.set_debug_on_hover(enable_debug);
                     });
                     egui::ScrollArea::vertical().show(ui, |ui| {
                         ui.add_enabled(
