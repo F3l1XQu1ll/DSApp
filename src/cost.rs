@@ -68,7 +68,7 @@ macro_rules! ui_attr {
             |ui: &mut egui::Ui| {
                 ui.add(crate::widgets::decimal::Decimal::decimal(
                     &mut self.character.attributes.$attr,
-                    0..=self
+                    8..=self
                         .character
                         .erfahrungsgrad
                         .erfahrungsgrad()
