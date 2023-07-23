@@ -1,4 +1,8 @@
-use crate::{character_talents::CharakterTalentBases, erfahrungsgrade::Erfahrungsgrade};
+use egui::Id;
+
+use crate::{
+    character_talents::CharakterTalentBases, erfahrungsgrade::Erfahrungsgrade, roll::Roll,
+};
 
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub struct KaP {
@@ -424,10 +428,12 @@ pub struct AttrAPCost {
 
 #[derive(Default, serde::Deserialize, serde::Serialize, Clone)]
 pub struct Kampftechnik {
+    pub id: String,
     pub name: String,
     pub leiteigenschaft: AttrType,
     pub steigerungs_faktor: SteigerungsFaktor,
     pub stufe: u16,
+    pub roll: Roll,
 }
 
 impl Kampftechnik {

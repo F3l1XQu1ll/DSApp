@@ -45,6 +45,27 @@ macro_rules! drag_val {
 }
 
 #[macro_export]
+macro_rules! drag_val_mod {
+    ($ui:expr, $link: expr) => {
+        $ui.horizontal(|ui| {
+            if ui
+                .add_enabled(*$link > -20, egui::Button::new("–"))
+                .clicked()
+            {
+                *$link -= 1;
+            }
+            ui.add(egui::DragValue::new($link).clamp_range(-300..=300));
+            if ui
+                .add_enabled(*$link < 20, egui::Button::new("+"))
+                .clicked()
+            {
+                *$link += 1;
+            }
+        });
+    };
+}
+
+#[macro_export]
 macro_rules! text_edit {
     ($ui:expr, $link: expr) => {
         $ui.text_edit_singleline($link)

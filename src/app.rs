@@ -230,6 +230,11 @@ impl eframe::App for DSApp {
         crate::debugger::Debugger::new(ctx, &self_clone, data_code, autoupdate_code, replace_data)
             .show();
 
+        // Add Fight_roll windos
+        //egui::Frame::show(self, ui, |ui| {
+        //    crate::kampf::KampfTechnikenView::new(&mut character.kampftechniken).ui_win(ui);
+        //});
+
         // Top panel comes first, current layout is:
         // |           TOP          |
         // --------------------------
@@ -239,6 +244,9 @@ impl eframe::App for DSApp {
         egui::TopBottomPanel::top("top_panel").show(ctx, |ui| {
             ui.heading("DSApp");
             egui::warn_if_debug_build(ui);
+
+            // Add Fight_roll windos
+            crate::kampf::KampfTechnikenView::new(&mut character.kampftechniken).ui_win(ui);
 
             // Charakter
             character.ui(ui);
