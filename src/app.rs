@@ -409,53 +409,6 @@ impl eframe::App for DSApp {
                 });
         });
 
-        // Derzeit debug für Kosten und Attribut berechnungen
-        egui::CentralPanel::default().show(ctx, |ui| {
-            ui.label("AP:");
-            crate::cost::CostView::new(character).show(ui);
-            ui.label("Name (prop)");
-            ui.text_edit_singleline(
-                store
-                    .properties
-                    .entry("/character/name".into())
-                    .or_insert(Cow::from("Moin").into())
-                    .to_str_mut()
-                    .unwrap(),
-            );
-            ui.label("Mut (prop)");
-            ui.add(egui::DragValue::new(
-                store
-                    .properties
-                    .entry("/character/attribute/mu".into())
-                    .or_insert(8.0.into())
-                    .to_val_mut()
-                    .unwrap(),
-            ));
-            // let mut_kosten_op = mul!(sub!(get!("/character/attribute/mu"), ld!(8.0)), ld!(15.0));
-            let mut_kosten_op = gt!(
-                get!("/character/attribute/mu"),
-                ld!(8.0),
-                ld!("Größer"),
-                ld!("Kleiner")
-            );
-
-            ui.label(format!(
-                "Mut kosten: {:?}",
-                store
-                    .operations
-                    .entry("/mut_kosten".into())
-                    .or_insert(mut_kosten_op)
-                    .eval(&mut store.properties)
-                    .and_then(Value::to_str)
-                    .unwrap(),
-            ));
-
-            // let op = op!(["/character/attribute/mu"] + 2.0);
-
-            // Neues Sheet
-            crate::views::character::Character::view(store, ui);
-        });
-
         // Ab hier nur viel altes Zeug, muss noch aktualisiert und neu eingefügt werden
         /*egui::CentralPanel::default().show(ctx, |ui| {
             egui::ScrollArea::both()
