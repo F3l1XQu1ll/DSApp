@@ -27,7 +27,7 @@ Beispiel DSA5 Chartaktersheet:
 |---|---|---|
 | done | Einarbeiten | Julian |
 | in progress | Dokumentation | | 
-| inprogress | Issues | |
+| done | Issues | |
 | done | time table | zur Abgabe fertig; Länge |
 
 
@@ -36,15 +36,15 @@ Beispiel DSA5 Chartaktersheet:
 |---|---|---|---|
 | done | Persönlichkeitsdaten | Familie| 1 |
 | done | Erfahungsgrad / Abenteuerpunkte(AP) | check data| 1 |
-| in progress | Spezies / Kultur | Boni/Mali(kann später)| 1 |
-| in progress | Professionen | Standarts einfügen | 1 |
-| in progress | Sprachen / Schriften || 1 |
+| done | Spezies / Kultur | Boni/Mali(kann später)| 1 |
+| done | Professionen | | 1 |
+| done | Sprachen / Schriften || 1 |
 | done | Leiteigenschaften | check data | 1 |
-| not | Vorteile / Nachteile || 1 |
-| not | Sonderfertigkeiten | in Profession angefangen :(| 1 |
-| in progress | Grundwerte (LE, AsP, KP, SK, ZK, As) | Wert ausrechenen, Zukauf ermöglichen| 1 |
+| done | Vorteile / Nachteile || 1 |
+| done | Sonderfertigkeiten | in Profession | 1 |
+| done | Grundwerte (LE, AsP, KP, SK, ZK, As) | Wert ausrechenen, Zukauf ermöglichen| 1 |
 | done | Talente | Untertalente; check data | 1 |
-| not | Kampftechniken | | 1 |
+| done | Kampftechniken | | 1 |
 | not | Ausrüstung / Geld || 2 |
 | not | Tragekraft || 2 |
 | not | Tiere / Begleiter|| 2|
@@ -56,11 +56,11 @@ Beispiel DSA5 Chartaktersheet:
 | not | Statuseffekte | 2 | 
 | in progress | Speichern von Char | 2 |
 | not | Speichern von Homebrew | 3 |
-| not | würfeln | 1 |
+| done | würfeln | 1 |
 ### weiters
 | Status | ToDo | notes | phase |
 |---|---|---|---|
-| in progress | GUI | chapter| 1/2 |
+| done | GUI | chapter| 1/2 |
 | not | Programm | | 3 |
 | not | Zonen Rüstung | | 3 |
 | not | Verweis zu Ulisses-Wiki| | 2 |
